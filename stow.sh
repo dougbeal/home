@@ -1,2 +1,4 @@
 #!/bin/bash
-/usr/bin/perl /usr/bin/stow --dir=. --target=$HOME home
+perl=$(which perl)
+stow=$(which stow)
+$perl $stow --dir=. --target=$HOME home
