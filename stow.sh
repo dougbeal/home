@@ -23,10 +23,6 @@ if [ ! -e ~/.emacs ]; then
             (throw 'break nil))))
 """ > $HOME/.emacs
 fi
-# (loop for path in '( "/home/dougbeal/git/home" "C:/cygwin/home/dougbeal/git/home") do
-#       (if (file-exists-p (concat path "/emacs/init.el"))
-# 	  (progn (load (concat path "/emacs/init.el"))
-# 		 (throw 'break nil))))
 
 $perl $stow --dir=. --target=$HOME home
 $perl $stow --dir=. --target=$HOME/.ssh .ssh
