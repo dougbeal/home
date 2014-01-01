@@ -7,7 +7,7 @@
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(c-basic-offset 4)
  '(c-offsets-alist (quote ((substatement-open . 0))))
- '(desktop-path (quote ("/home/dbeal" "." "~")))
+ '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
  '(exec-path (quote ("/opt/local/bin" "/opt/local/sbin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin" "/usr/X11R6/bin" "/opt/local/bin")))
  '(frame-background-mode (quote dark))
