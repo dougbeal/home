@@ -554,3 +554,5 @@ function relpath() {
     echo $newpath
 }
 
+platform=$( getPlatform )
+platform=${platform:-"Darwin"}
