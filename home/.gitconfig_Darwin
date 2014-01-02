@@ -5,3 +5,6 @@
         autocrlf = input
 [credential]
         helper = osxkeychain
+[merge]
+	tool = meld
+
