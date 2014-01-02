@@ -1,0 +1,2 @@
+alias ec='emacsclient -n'
+alias dpbscreen='screen -d -RR -S dougbeal'
