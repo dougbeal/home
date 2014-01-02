@@ -47,3 +47,5 @@
 
 (require 'smex)
 (smex-initialize)
+(put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)

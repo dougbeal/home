@@ -1,4 +1,4 @@
-(require 'nose)
+(require 'nose2)
 (require 'python)
 (require 'dsvn)
 (require 'vc-svn)
@@ -50,6 +50,9 @@
 (autoload 'mel-mode "mel-mode" "Mel mode" t )
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 
+;(autoload 'python-mode "dpb-python-load-hook" "" t ) 
+;(add-hook 'python-mode-hook 'jedi:setup)
+
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.htaccess\\'"   . apache-mode))
 (add-to-list 'auto-mode-alist '("httpd\\.conf\\'"  . apache-mode))
@@ -60,6 +63,8 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . cheetah-alf-mode ))
 (add-to-list 'auto-mode-alist '("\\.j\\'" . javascript-mode ))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 (append '("\\.mel\\'" . 'mel-mode) auto-mode-alist)
 (append '("\\.alf\\'" . 'tcl-mode) auto-mode-alist)
 (append '("\\.applescript$" . 'applescript-mode) auto-mode-alist)
@@ -100,7 +105,8 @@
 ;; (global-srecode-minor-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; END CEDET
 
-(setq nose-project-root-files '(".test_project_root"))
+(setq nose2-project-root-files '(".test_project_root"))
+
 
 (eval-after-load "pymacs" '(progn
                              (add-to-list 'pymacs-load-path (expand-file-name "~/lib/emacs/rope"))
@@ -112,4 +118,22 @@
 (eval-after-load "python-mode"
   '(progn
      (load-ropemacs)))
-(add-to-list 'nose-project-names "")
+(add-to-list 'nose2-project-names "")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; elisp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'erefactor)
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (define-key emacs-lisp-mode-map "\C-c\C-v" erefactor-map)))
+
+;;And set these variables correctly.
+ `erefactor-lint-path-alist', `erefactor-lint-by-emacsen'
+
+;; Put the following in your .emacs, if you desire highlighting local variable.
+
+(add-hook 'emacs-lisp-mode-hook 'erefactor-lazy-highlight-turn-on)
+(add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
