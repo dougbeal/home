@@ -1,12 +1,9 @@
-commonFile="$( cd $(dirname ${sourceFile}); pwd -P )/common.sh"
-source ${commonFile}
+source ~/common.sh
 
 export SVN_EDITOR="emacsclient"
 export EDITOR="emacsclient"
-safeSource $DIR_COMMON/.alias
-platform=$(getPlatform)
-platform=${platform:-"Darwin"}
-safeSource $DIR_COMMON/.profile_$platform
+safeSource ~/.alias
+safeSource ~/.profile_$platform
 
 
 
