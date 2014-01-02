@@ -17,3 +17,4 @@ command -v stow || brew install stow
 stow --verbose=3 "--dir=$stow_source" --target="$stow_destination" --stow home sh
 stow --verbose=3 "--dir=$stow_source" --target="$stow_destination/.ssh" --stow .ssh
 
+( cd "$stow_destination" && ln -s .gitconfig_${platform} .gitconfig )
