@@ -1,5 +1,5 @@
 #!/bin/bash
-this=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+this_common_sh=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
 
 function updateEnvironmentVariable() {
     local varname=$1
@@ -98,7 +98,7 @@ function safeSource() {
 }
 
 function safeSourceHere() {
-    local file="${this}/$1"
+    local file="${this_common_sh}/$1"
     if [ -n "$file" -a -e $file ]; then
 	source ${file}
     else
