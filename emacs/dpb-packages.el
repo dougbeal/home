@@ -2,6 +2,8 @@
 (load "package.el")
 (package-initialize)
 (add-to-list 'package-archives
+	     '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives 
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -49,11 +51,12 @@
                               'php-mode
                               'pylint
                               'pymacs
-                              'pyregexp
                               'rinari
                               'ruby-compilation
                               'ruby-mode
                               'virtualenv
+                              'visual-regex
+                              'visual-regex-steroids
                               'xml-rpc
                               'yaml-mode
                               'yasnippet-bundle
