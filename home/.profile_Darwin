@@ -8,14 +8,14 @@ export MANPATH=/usr/local/share/man:$MANPATH
 
 PS1='\h:\W \u\$ '
 
-function cool()
-{
-    grep $@ $HOME/Source/dbeal/cool.commands
-}
+# function cool()
+# {
+#     grep $@ $HOME/Source/dbeal/cool.commands
+# }
 
 
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=python2.7'
-export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=python2.7'
+#export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
 # todo: update virtualenvwarpper
 #source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
 
