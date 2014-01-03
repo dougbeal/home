@@ -3,6 +3,7 @@
 	email = git@dougbeal.com
 [core]
         autocrlf = input
+	editor = emacs
 [credential]
         helper = osxkeychain
 [merge]
