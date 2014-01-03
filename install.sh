@@ -18,3 +18,5 @@ stow --verbose=3 "--dir=$stow_source" --target="$stow_destination" --stow home s
 stow --verbose=3 "--dir=$stow_source" --target="$stow_destination/.ssh" --stow .ssh
 
 ( cd "$stow_destination" && ln -s .gitconfig_${platform} .gitconfig )
+git submodule init
+git submodule update

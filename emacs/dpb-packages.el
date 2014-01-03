@@ -11,15 +11,16 @@
 
 
 (defvar packages-default (list
-                          'load-dir
-                          'org
-                          'melpa
-                          'magit
                           'auto-complete
+                          'dash
                           'ido-better-flex
                           'ido-ubiquitous
                           'ido-yes-or-no
                           'idomenu
+                          'load-dir
+                          'magit
+                          'melpa
+                          'org
                           'smex
 )
   "Libraries that should be installed by default.")
@@ -28,8 +29,10 @@
                               'apache-mode
                               'coffee-mode
                               'css-mode
+                              'css-mode
                               'dsvn
                               'erefactor
+                              'flymake
                               'flymake
                               'flymake-coffee
                               'flymake-css
@@ -45,6 +48,7 @@
                               'markdown-mode+
                               'nav
                               'nose
+                              'nxml
                               'nxml
                               'paredit
                               'paredit-menu
@@ -80,3 +84,7 @@
 (with-demoted-errors (package-refresh-contents))
 (with-demoted-errors (elpa-install packages-default))
 (with-demoted-errors (elpa-install packages-development))
+
+
+(require 'cl)
+(message "Installed packages not in packages list: %s" (set-difference packages-development (set-difference package-activated-list packages-default)))
