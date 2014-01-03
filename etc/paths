@@ -1,6 +1,6 @@
 /usr/local/bin
 /usr/local/sbin
-/usr/local/ruby/bin
+/usr/local/opt/ruby/bin
 /usr/local/share/python
 /usr/bin
 /bin
