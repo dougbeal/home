@@ -1,0 +1,21 @@
+# -*- mode: sh; -*-
+$(verbose echo ".profile_Darwin" )
+export PATH=${HOME}/bin:${HOME}/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/ruby/bin:/usr/local/share/python:$PATH
+export MANPATH=/usr/local/share/man:$MANPATH
+
+#todo: update pymacs path?
+#updateEnvironmentVariable PYTHONPATH "${HOME}/lib/emacs/pymacs"
+
+PS1='\h:\W \u\$ '
+
+function cool()
+{
+    grep $@ $HOME/Source/dbeal/cool.commands
+}
+
+
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages --python=python2.7'
+export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
+# todo: update virtualenvwarpper
+#source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
+

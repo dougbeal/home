@@ -1,7 +1,6 @@
 #!/bin/bash
-
-perl=$(which perl)
-stow=$(which stow)
+this=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+source "$this/sh/common.sh"
 
 ############################################################
 # generate .emacs file, which loads repo init.el  
@@ -9,6 +8,13 @@ if [ ! -e ~/.emacs ]; then
     ./generate_dotemacs.sh > $HOME/.emacs
 fi
 
-$perl $stow --dir=. --target=$HOME home
-$perl $stow --dir=. --target=$HOME/.ssh .ssh
+stow_source="$this"
+stow_destination=$( cd $HOME; pwd -P )
 
+# todo: move to platform specific, this is an osx-ism
+command -v stow || brew install stow
+
+stow --verbose=3 "--dir=$stow_source" --target="$stow_destination" --stow home sh
+stow --verbose=3 "--dir=$stow_source" --target="$stow_destination/.ssh" --stow .ssh
+
+( cd "$stow_destination" && ln -s .gitconfig_${platform} .gitconfig )

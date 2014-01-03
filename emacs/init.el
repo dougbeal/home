@@ -34,8 +34,9 @@
  ;; -*- coding: utf-8 -*-
 ;; 2007-06, 2012-04-06
 ;; http://xahlee.org/emacs/xah_emacs_init.html
+;; https://github.com/xahlee/xah_emacs_init
 
-
+
 ;; § ----------------------------------------
 ; loading custom commands and functions
 
@@ -78,14 +79,25 @@ interactively by “eval-buffer”."
 (defun safe-load (file &optional noerror nomessage nosuffix)
   (load file noerror nomessage nosuffix))
 
+
+;; add ./development for elisp currently in development
+(push (fullpath-relative-to-current-file "development") load-path)
+
+(require 'edebug)
+(setq edebug-trace t)
+(edebug-trace "tracing")
+
 (setq custom-file (fullpath-relative-to-current-file "dpb-custom.el"))
 (load custom-file)
 
 (load (fullpath-relative-to-current-file "dpb-packages.el"))
+
+(safe-load (fullpath-relative-to-current-file "dpb-appearance.el"))
 (when (equal system-type 'windows-nt) 
   (load (fullpath-relative-to-current-file "dpb-windows.el")))
 (when (equal system-type 'darwin)  
   (load (fullpath-relative-to-current-file "dpb-osx.el")))
+
 (safe-load (fullpath-relative-to-current-file "dpb-development.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-emacs.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-org.el"))
@@ -93,13 +105,14 @@ interactively by “eval-buffer”."
 (safe-load (fullpath-relative-to-current-file "dpb-perspective.el"))
 
 
-(setenv "PYMACS_PYTHON" "python2.6")
+
+(setenv "PYMACS_PYTHON" "python2.7")
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (ac-config-default)
 
 
-
+(safe-load-check)
 (setq debug-on-error nil)
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and

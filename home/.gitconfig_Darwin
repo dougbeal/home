@@ -1,0 +1,10 @@
+[user]
+	name = Douglas Beal
+	email = git@dougbeal.com
+[core]
+        autocrlf = input
+[credential]
+        helper = osxkeychain
+[merge]
+	tool = meld
+
