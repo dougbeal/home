@@ -1,3 +1,6 @@
 [submodule "emacs/development/git/frame-restore.el"]
 	path = emacs/development/git/frame-restore.el
 	url = https://github.com/dougbeal/frame-restore.el
+[submodule "emacs/development/git/nose"]
+	path = emacs/development/git/nose
+	url = https://github.com/dougbeal/nose
