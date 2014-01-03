@@ -1,0 +1,3 @@
+[submodule "emacs/development/git/frame-restore.el"]
+	path = emacs/development/git/frame-restore.el
+	url = https://github.com/dougbeal/frame-restore.el
