@@ -2,20 +2,20 @@
 (load "package.el")
 (package-initialize)
 (add-to-list 'package-archives
-	     '("gnu" . "http://elpa.gnu.org/packages/") t)
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives 
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
 
 (defvar packages-default (list
-			  'load-dir
-			  'org
-			  'melpa
-			  'magit
-			  'auto-complete
+                          'load-dir
+                          'org
+                          'melpa
+                          'magit
+                          'auto-complete
                           'ido-better-flex
                           'ido-ubiquitous
                           'ido-yes-or-no
@@ -68,7 +68,7 @@
   (interactive)
   (dolist (package list)
     (unless (or (member package package-activated-list)
-		(package-built-in-p package)
+                (package-built-in-p package)
                 (functionp package))
       (message "Installing %s" (symbol-name package))
       (condition-case err
