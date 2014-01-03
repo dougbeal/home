@@ -85,7 +85,7 @@ interactively by “eval-buffer”."
 
 (require 'edebug)
 (setq edebug-trace t)
-(edebug-trace "tracing")
+;;(edebug-trace "tracing")
 
 (setq custom-file (fullpath-relative-to-current-file "dpb-custom.el"))
 (load custom-file)
