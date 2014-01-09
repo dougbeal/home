@@ -20,3 +20,6 @@ stow --verbose=3 "--dir=$stow_source" --target="$stow_destination/.ssh" --stow .
 ( cd "$stow_destination" && ln -s .gitconfig_${platform} .gitconfig )
 git submodule init
 git submodule update
+
+./package_install.sh
+
