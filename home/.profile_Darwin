@@ -1,6 +1,6 @@
 # -*- mode: sh; -*-
 $(verbose echo ".profile_Darwin" )
-export PATH=${HOME}/bin:${HOME}/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/python:$PATH
+export PATH=${HOME}/bin:${HOME}/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
 export MANPATH=/usr/local/share/man:$MANPATH
 
 #todo: update pymacs path?

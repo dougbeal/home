@@ -39,13 +39,22 @@
       )
   )
 
-(require 'ido)
+;(require 'ido)
 ;(require 'ido-ubiquitous)
-(require 'ido-yes-or-no)
-(require 'ido-better-flex)
-(ido-mode 'both)
+;(require 'ido-yes-or-no)
+;(require 'ido-better-flex)
+;(ido-mode 'both)
+
+
+(require 'flx-ido)
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
 
 (require 'smex)
 (smex-initialize)
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+

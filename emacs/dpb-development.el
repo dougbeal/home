@@ -6,6 +6,7 @@
 ;(require 'w3m-load)
 ;(require 'visual-basic-mode)
 (require 'php-mode)
+(require 'flycheck)
 
 (setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-local-prefix "C-c C-p")
@@ -107,6 +108,9 @@
 
 (setq nose2-project-root-files '(".test_project_root"))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  514  pip install rope ropemacs
+;;  515  pip install -e "git+https://github.com/pinard/Pymacs.git#egg=Pymacs"
 
 (eval-after-load "pymacs" '(progn
                              (add-to-list 'pymacs-load-path (expand-file-name "~/lib/emacs/rope"))
@@ -137,3 +141,17 @@
 
 (add-hook 'emacs-lisp-mode-hook 'erefactor-lazy-highlight-turn-on)
 (add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(setq inferior-js-program-command "node --interactive") ;; run-js
+(setenv "NODE_NO_READLINE" "1")
+(setq inferior-js-mode-hook
+      (lambda ()
+        ;; We like nice colors
+        (ansi-color-for-comint-mode-on)
+        ;; Deal with some prompt nonsense
+        (add-to-list
+         'comint-preoutput-filter-functions
+         (lambda (output)
+           (replace-regexp-in-string "\033\\[[0-9]+[GK]" "" output)))))

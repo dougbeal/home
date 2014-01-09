@@ -16,13 +16,11 @@
   "Load a file.  If error when loading, report back, wait for
    a key stroke then continue on"
   (interactive "f")
-  (condition-case nil (load file noerror nomessage nosuffix) 
+  (condition-case err (load file noerror nomessage nosuffix) 
     (error 
       (progn 
-       (setq safe-load-error-list  (concat safe-load-error-list  " " file))
-       (message "****** [Return to continue] Error loading %s" safe-load-error-list )
-        (sleep-for 1)
-       nil))))
+       (setq safe-load-error-list  (concat safe-load-error-list  " " file " " (error-message-string err)))
+       (message "****** [Return to continue] Error loading %s:%s" file (error-message-string err))))))
 
 (defun safe-load-check ()
  "Check for any previous safe-load loading errors.  (safe-load.el)"
@@ -76,8 +74,8 @@ interactively by “eval-buffer”."
 ; end xahlee
 
 ;; disable safe-load for debugging
-(defun safe-load (file &optional noerror nomessage nosuffix)
-  (load file noerror nomessage nosuffix))
+;;(defun safe-load (file &optional noerror nomessage nosuffix)
+;;  (load file noerror nomessage nosuffix))
 
 
 ;; add ./development for elisp currently in development
