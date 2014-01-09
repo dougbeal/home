@@ -11,6 +11,6 @@
 )&
 (
     brew install ruby
-    gem install tidy
+    gem install tidy github-pages jekyll rake
     echo "ruby packages installed."
 )&
