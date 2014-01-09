@@ -143,3 +143,15 @@
 (add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(setq inferior-js-program-command "node --interactive") ;; run-js
+(setenv "NODE_NO_READLINE" "1")
+(setq inferior-js-mode-hook
+      (lambda ()
+        ;; We like nice colors
+        (ansi-color-for-comint-mode-on)
+        ;; Deal with some prompt nonsense
+        (add-to-list
+         'comint-preoutput-filter-functions
+         (lambda (output)
+           (replace-regexp-in-string "\033\\[[0-9]+[GK]" "" output)))))

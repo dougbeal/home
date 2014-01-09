@@ -11,6 +11,7 @@
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(c-basic-offset 4)
  '(c-offsets-alist (quote ((substatement-open . 0))))
+ '(coffee-tab-width 2)
  '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
  '(exec-path (quote ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
