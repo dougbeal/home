@@ -1,7 +1,7 @@
 #!/bin/sh
 (
     brew install nodejs
-    npm install -g coffee-script coffeelint jshint js2coffee
+    npm install -g coffee-script coffeelint jshint js2coffee js-yaml jsonminify
     echo "node packages installed."
 )&
 (
