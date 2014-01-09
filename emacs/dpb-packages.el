@@ -1,5 +1,6 @@
 ;; based on https://github.com/mknittig/emacs-config/blob/master/elpa.el
-(load "package.el")
+;;(load "package.el")
+(require 'package)
 (package-initialize)
 (add-to-list 'package-archives
              '("gnu" . "http://elpa.gnu.org/packages/") t)
@@ -13,9 +14,10 @@
 (defvar packages-default (list
                           'auto-complete
                           'dash
-                          'ido-better-flex
-                          'ido-ubiquitous
-                          'ido-yes-or-no
+                          'flx
+                          'flx-ido
+                          'google-this
+                          'grizzl
                           'idomenu
                           'load-dir
                           'magit
@@ -32,10 +34,8 @@
                               'css-mode
                               'dsvn
                               'erefactor
-                              'flymake
-                              'flymake
-                              'flymake-coffee
-                              'flymake-css
+                              'flycheck
+                              'flycheck-color-mode-line
                               'gist
                               'highlight-80+
                               'highlight-parentheses
@@ -48,7 +48,6 @@
                               'markdown-mode+
                               'nav
                               'nose
-                              'nxml
                               'nxml
                               'paredit
                               'paredit-menu
@@ -66,6 +65,20 @@
                               'yasnippet-bundle
                               )
   "Libraries for development that should be installed by default.")
+
+
+                              ;; 'flymake
+                              ;; 'flymake-coffee
+                              ;; 'flymake-jslint
+                              ;; 'flymake-jshint
+                              ;; 'flymake-json
+                              ;; 'flymake-python
+                              ;; 'flymake-ruby
+                              ;; 'flymake-shell
+                              ;; 'flymake-css
+                          ;; 'ido-better-flex
+                          ;; 'ido-ubiquitous
+                          ;; 'ido-yes-or-no
 
 (defun elpa-install (list)
   "Install all packages that aren't installed."
@@ -87,4 +100,6 @@
 
 
 (require 'cl)
-(message "Installed packages not in packages list: %s" (set-difference packages-development (set-difference package-activated-list packages-default)))
+(message "Installed packages not in packages list: %s" 
+         (set-difference  (set-difference package-activated-list packages-default) 
+                          packages-development))
