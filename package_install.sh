@@ -1,7 +1,7 @@
 #!/bin/sh
 brew install nodejs python ruby
 (
-    npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector
+    npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector async
     echo "node packages installed."
 )&
 (
