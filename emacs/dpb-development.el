@@ -155,3 +155,12 @@
          'comint-preoutput-filter-functions
          (lambda (output)
            (replace-regexp-in-string "\033\\[[0-9]+[GK]" "" output)))))
+
+
+;; automatically clean up bad whitespace
+(setq whitespace-action '(auto-cleanup))
+;; only show bad whitespace
+(setq whitespace-style '(trailing tabs space-before-tab indentation empty space-after-tab))
+
+(add-hook 'coffee-mode-hook '(lambda () (whitespace-mode)))
+
