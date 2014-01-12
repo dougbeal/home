@@ -132,7 +132,7 @@
 (require 'erefactor)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (define-key emacs-lisp-mode-map "\C-c\C-v" erefactor-map)))
+            (define-key emacs-lisp-mode-map (kbd "C-c C-v") erefactor-map)))
 
 ;;And set these variables correctly.
  `erefactor-lint-path-alist', `erefactor-lint-by-emacsen'
@@ -162,5 +162,14 @@
 ;; only show bad whitespace
 (setq whitespace-style '(trailing tabs space-before-tab indentation empty space-after-tab))
 
-(add-hook 'coffee-mode-hook '(lambda () (whitespace-mode)))
+(add-hook 'coffee-mode-hook 
+          '(lambda () 
+             (whitespace-mode)
+             (define-key coffee-mode-map (kdb "C-c <") 'coffee-indent-shift-left)
+             (define-key coffee-mode-map (kdb "C-c >") 'coffee-indent-shift-rigth)
+             ))
+
+(provide 'dpb-development) 
+;;; dpb-development.el ends here (emacs-lisp-checkdoc)
+
 
