@@ -165,8 +165,8 @@
 (add-hook 'coffee-mode-hook 
           '(lambda () 
              (whitespace-mode)
-             (define-key coffee-mode-map (kdb "C-c <") 'coffee-indent-shift-left)
-             (define-key coffee-mode-map (kdb "C-c >") 'coffee-indent-shift-rigth)
+             (define-key coffee-mode-map (kbd "C-c <") 'coffee-indent-shift-left)
+             (define-key coffee-mode-map (kbd "C-c >") 'coffee-indent-shift-rigth)
              ))
 
 (provide 'dpb-development) 
