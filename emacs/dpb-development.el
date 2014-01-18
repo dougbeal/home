@@ -47,11 +47,11 @@
 
 (autoload 'apache-mode "apache-mode" nil t)
 (autoload 'applescript-mode "applescript-mode" "major mode for editing AppleScript source." t)
-;(autoload 'python-mode "my-python-mode" "" t ) 
+;(autoload 'python-mode "my-python-mode" "" t )
 (autoload 'mel-mode "mel-mode" "Mel mode" t )
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 
-;(autoload 'python-mode "dpb-python-load-hook" "" t ) 
+;(autoload 'python-mode "dpb-python-load-hook" "" t )
 ;(add-hook 'python-mode-hook 'jedi:setup)
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -162,14 +162,12 @@
 ;; only show bad whitespace
 (setq whitespace-style '(trailing tabs space-before-tab indentation empty space-after-tab))
 
-(add-hook 'coffee-mode-hook 
-          '(lambda () 
-             (whitespace-mode)
+(add-hook 'coffee-mode-hook
+          '(lambda ()
              (define-key coffee-mode-map (kbd "C-c <") 'coffee-indent-shift-left)
-             (define-key coffee-mode-map (kbd "C-c >") 'coffee-indent-shift-rigth)
+             (define-key coffee-mode-map (kbd "C-c >") 'coffee-indent-shift-right)
+             (whitespace-mode 't)
              ))
 
-(provide 'dpb-development) 
+(provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)
-
-
