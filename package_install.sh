@@ -1,7 +1,7 @@
 #!/bin/sh
-brew install nodejs python ruby
+brew install nodejs python ruby markdown
 (
-    npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector async
+    npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector async mocha
     echo "node packages installed."
 )&
 (
@@ -9,6 +9,6 @@ brew install nodejs python ruby
     echo "python packages installed."
 )&
 (
-    gem install tidy github-pages jekyll rake
+    gem install tidy github-pages jekyll rake json
     echo "ruby packages installed."
 )&
