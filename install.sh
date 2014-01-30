@@ -14,8 +14,22 @@ stow_destination=$( cd $HOME; pwd -P )
 # todo: move to platform specific, this is an osx-ism
 command -v stow || brew install stow
 
+# to ~/
 stow --verbose=3 "--dir=$stow_source" --target="$stow_destination" --stow home sh
-stow --verbose=3 "--dir=$stow_source" --target="$stow_destination/.ssh" --stow .ssh
+
+# to ~/.ssh
+dst="$stow_destination/.ssh"
+mkdir -p "$dst"
+stow --verbose=3 "--dir=$stow_source" --target="$dst" --stow .ssh
+
+# to ~/bin
+src="$stow_source/bin/"
+dst="$stow_destination/bin"
+ln -s "$src" "$dst" 
+
+src="$this/git"
+stow --verbose=3 "--dir=$src" --target="$stow_source/bin" --stow gist.sh
+
 
 ( cd "$stow_destination" && ln -s .gitconfig_${platform} .gitconfig )
 git submodule init
