@@ -7,6 +7,7 @@
 ;(require 'visual-basic-mode)
 (require 'php-mode)
 (require 'flycheck)
+(require 'github-issues)
 
 (setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-local-prefix "C-c C-p")
@@ -168,6 +169,7 @@
              (define-key coffee-mode-map (kbd "C-c >") 'coffee-indent-shift-right)
              (whitespace-mode 't)
              ))
+
 
 (provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)
