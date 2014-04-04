@@ -77,7 +77,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.ads";
 }elsif header :contains "from" "vw.com" {
   fileinto "INBOX.ads";
-}elsif header :contains "to" "monkey@gritmonkey.com" {
+}elsif header :contains "to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com"] {
   fileinto "INBOX.spam.manual";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "dell@dougbeal.com" {
   fileinto "INBOX.ads";
