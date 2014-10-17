@@ -13,6 +13,7 @@ stow_destination=$( cd $HOME; pwd -P )
 
 # todo: move to platform specific, this is an osx-ism
 command -v stow || brew install stow
+command -v w3m || brew install w3m
 
 # to ~/
 stow --verbose=3 "--dir=$stow_source" --target="$stow_destination" --stow home sh
