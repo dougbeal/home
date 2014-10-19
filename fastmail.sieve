@@ -29,66 +29,23 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 }  elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "catchthismail@gritmonkey.com" {
   fileinto "INBOX.spam";
   stop;
-}elsif header :contains "from" "news@email.kayak.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "List-Id" "studiosysadmins.com" {
-  fileinto "INBOX.lists.ssa";
-}elsif header :contains "from" "Sale@Sales.Overstock.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "promo@e.newegg.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "service@cs.frys.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "specials@email.officedepot.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "Dell Direct" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "offers@deepdiscountpromotions.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "dell.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "mp.member@alaskaair.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "CostcoNews@online.costco.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "zappos@zappos.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "service@outpost.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "growers@harrisseeds.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "promo@email.newegg.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "e-statement@mymileageplan.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "enews.becu.org" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "cstacey.SouthTacomaHonda@gs.reyrey.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "emeraldfortestsugar.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "plentyoffish.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "eventful.com" {
-  fileinto "INBOX.spam";
-}elsif header :contains "to" "southtacmoahonda@dougbeal.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "capovw.com" {
-  fileinto "INBOX.ads";
-}elsif header :contains "from" "vw.com" {
-  fileinto "INBOX.ads";
+# leaked email addresses
 }elsif header :contains "to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com"] {
   fileinto "INBOX.spam.manual";
+}elsif header :contains "from" ["eventful.com"] {
+  fileinto "INBOX.spam.manual";
+}elsif header :contains "List-Id" "studiosysadmins.com" {
+  fileinto "INBOX.lists.ssa";
+}elsif header :contains "from" [ "news@email.kayak.com", "Sale@Sales.Overstock.com", "promo@e.newegg.com", "service@cs.frys.com", "specials@email.officedepot.com", "Dell Direct", "offers@deepdiscountpromotions.com", "dell.com", "mp.member@alaskaair.com", "CostcoNews@online.costco.com", "zappos@zappos.com", "service@outpost.com", "growers@harrisseeds.com", "promo@email.newegg.com", "e-statement@mymileageplan.com", "enews.becu.org", "cstacey.SouthTacomaHonda@gs.reyrey.com", "emeraldfortestsugar.com", "plentyoffish.com", "capovw.com", "vw.com" ] {
+  fileinto "INBOX.ads";
+} elsif header :contains "to" "southtacmoahonda@dougbeal.com" {
+  fileinto "INBOX.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "dell@dougbeal.com" {
   fileinto "INBOX.ads";
 } elsif  header :contains "subject" "Mac-users" {
   fileinto "INBOX.mac";
 } elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "@cs.wisc.edu" {
   fileinto "INBOX.edu.wisconsin";
-#} elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "dougbeal@cs.wisc.edu" {
-#  fileinto "INBOX.edu.wisconsin";
-#} elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "cs-wisc@dougbeal.com" {
-#  fileinto "INBOX.edu.wisconsin";
 } elsif  header :contains ["to", "cc", "resent-to"] "uw-systems@cs.washington.edu" {
   fileinto "INBOX.edu.washington";
 } elsif  header :contains "subject" "cs-grads" {
@@ -201,3 +158,4 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   removeflag "\\Seen";
 # } 
 # ===END-GENERATED=== Text between markers will be automatically replaced
+
