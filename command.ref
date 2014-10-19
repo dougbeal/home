@@ -1,0 +1,2 @@
+To fix it, call set-buffer-file-coding-system, then give one of: {mac, dos, unix}. Then, save the file.
+C-x RET f, utf8-unix

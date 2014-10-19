@@ -4,6 +4,10 @@
 [submodule "emacs/development/git/nose"]
 	path = emacs/development/git/nose
 	url = https://github.com/dougbeal/nose
+[submodule "emacs/development/git/github-issues.el"]
+	path = emacs/development/git/github-issues.el
+	url = https://github.com/dougbeal/github-issues.el.git
 [submodule "git/gist.sh"]
 	path = git/gist.sh
 	url = https://github.com/dougbeal/gist.sh.git
+

@@ -7,6 +7,7 @@
 ;(require 'visual-basic-mode)
 (require 'php-mode)
 (require 'flycheck)
+(require 'github-issues)
 
 (setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-local-prefix "C-c C-p")

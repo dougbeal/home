@@ -61,6 +61,7 @@
                               'virtualenv
                               'visual-regexp
                               'visual-regexp-steroids
+                              'w3m
                               'xml-rpc
                               'yaml-mode
                               'yasnippet-bundle

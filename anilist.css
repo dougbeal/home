@@ -1,0 +1,25 @@
+/*##Place this above anything else to do with .rtitle or .update##*/
+.rtitle {display: block !important;}
+/*
+.rtitle:nth-of-type(4n-1){background-color: rgba(255, 255, 221, 0.3);}
+
+.update:nth-of-type(4n-4){background-color: rgba(255, 255, 221, 0.3);}
+*/
+/*.rtitle{counter-increment: count;}
+
+table.list tr:before{padding-left:4px;font-size: .8em;content: counter(count);}
+
+thead tr:before{opacity:0;}*/
+
+#lists {display: flex;flex-direction: column;}
+
+#Watching {order: 1;} /* Watching List */
+
+#Completed {order: 4;} /* Completed List */
+
+#On-Hold {order: 3;} /* On-Hold List */
+
+#Dropped {order: 5;} /* Dropped List */
+
+#PlanToWatch {order: 2;} /* Plan To Watch List */
+ 
