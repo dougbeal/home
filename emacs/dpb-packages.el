@@ -29,7 +29,8 @@
 
 (defvar packages-development (list
                               'apache-mode
-                              'coffee-mode
+                              'apples-mode
+                              'coffee-mode 
                               'css-mode
                               'css-mode
                               'dsvn

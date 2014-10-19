@@ -169,5 +169,9 @@
              (whitespace-mode 't)
              ))
 
+(autoload 'apples-mode "apples-mode" "Happy AppleScripting!" t)
+(autoload 'apples-open-scratch "apples-mode" "Open scratch buffer for AppleScript." t)
+(add-to-list 'auto-mode-alist '("\\.\\(applescri\\|sc\\)pt\\'" . apples-mode))
+
 (provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)
