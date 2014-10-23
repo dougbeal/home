@@ -8,17 +8,111 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-matching-paren-on-screen t)
- '(browse-url-browser-function (quote browse-url-default-macosx-browser))
+ '(browse-url-browser-function (quote eww-browse-url))
+ '(browse-url-text-browser "eww-browse-url")
  '(c-basic-offset 4)
  '(c-offsets-alist (quote ((substatement-open . 0))))
  '(coffee-args-compile (quote ("-c" "--bare")))
  '(coffee-tab-width 2)
  '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
- '(exec-path (quote ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
+ '(exec-path
+   (quote
+    ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
  '(flycheck-completion-system (quote grizzl))
  '(frame-background-mode (quote dark))
- '(ibuffer-saved-filter-groups (quote (("default" ("svn.ThirdParty.Tractor Source" (filename . "Source/Tractor")) ("svn.Engineering.config" (filename . "Source/Engineering/config")) ("svn.Engineering.script" (filename . "Source/Engineering/script")) ("svn.Engineering" (filename . "Source/Engineering")) ("svn.dev.Python.Tractor" (filename . "Source/dev/Bfd/Libs/Python/BFD/lib/Tractor")) ("svn.dev.ThirdParty.Tractor" (filename . "Source/dev/ThirdParty/Apps/Tractor")) ("svn.dev" (filename . "Source/dev")) ("unixAdmin" (filename . "/corp.blizzard.net/BFD/unixAdmin")) ("org-mode" (mode . org-mode)) ("pipetest.dbeal" (filename . "BFD/Projects/pipetest") ("completion-list-mode" (mode . completion-list-mode))) ("mode" ("Custom-mode" (mode . Custom-mode)) ("emacs-lisp-mode" (mode . emacs-lisp-mode)) ("occur-mode" (mode . occur-mode)) ("python-mode" (mode . python-mode)) ("fundamental-mode" (mode . fundamental-mode)) ("sh-mode" (mode . sh-mode)) ("help-mode" (mode . help-mode)) ("dired-mode" (mode . dired-mode)) ("org-mode" (mode . org-mode)) ("svn-status-diff-mode" (mode . svn-status-diff-mode)) ("svn-status-mode" (mode . svn-status-mode)) ("Info-mode" (mode . Info-mode)) ("org-agenda-mode" (mode . org-agenda-mode)) ("svn-info-mode" (mode . svn-info-mode)) ("awk-mode" (mode . awk-mode)) ("html-mode" (mode . html-mode)) ("calc-mode" (mode . calc-mode)) ("grep-mode" (mode . grep-mode)) ("lisp-interaction-mode" (mode . lisp-interaction-mode)) ("calendar-mode" (mode . calendar-mode)) ("tcl-mode" (mode . tcl-mode)) ("conf-space-mode" (mode . conf-space-mode)) ("conf-unix-mode" (mode . conf-unix-mode)) ("conf-xdefaults-mode" (mode . conf-xdefaults-mode)) ("perl-mode" (mode . perl-mode)) ("conf-colon-mode" (mode . conf-colon-mode)) ("text-mode" (mode . text-mode)) ("wisent-grammar-mode" (mode . wisent-grammar-mode)) ("sgml-mode" (mode . sgml-mode)) ("c++-mode" (mode . c++-mode)) ("outline-mode" (mode . outline-mode)) ("calc-trail-mode" (mode . calc-trail-mode)) ("completion-list-mode" (mode . completion-list-mode)))))))
+ '(ibuffer-saved-filter-groups
+   (quote
+    (("default"
+      ("svn.ThirdParty.Tractor Source"
+       (filename . "Source/Tractor"))
+      ("svn.Engineering.config"
+       (filename . "Source/Engineering/config"))
+      ("svn.Engineering.script"
+       (filename . "Source/Engineering/script"))
+      ("svn.Engineering"
+       (filename . "Source/Engineering"))
+      ("svn.dev.Python.Tractor"
+       (filename . "Source/dev/Bfd/Libs/Python/BFD/lib/Tractor"))
+      ("svn.dev.ThirdParty.Tractor"
+       (filename . "Source/dev/ThirdParty/Apps/Tractor"))
+      ("svn.dev"
+       (filename . "Source/dev"))
+      ("unixAdmin"
+       (filename . "/corp.blizzard.net/BFD/unixAdmin"))
+      ("org-mode"
+       (mode . org-mode))
+      ("pipetest.dbeal"
+       (filename . "BFD/Projects/pipetest")
+       ("completion-list-mode"
+        (mode . completion-list-mode)))
+      ("mode"
+       ("Custom-mode"
+        (mode . Custom-mode))
+       ("emacs-lisp-mode"
+        (mode . emacs-lisp-mode))
+       ("occur-mode"
+        (mode . occur-mode))
+       ("python-mode"
+        (mode . python-mode))
+       ("fundamental-mode"
+        (mode . fundamental-mode))
+       ("sh-mode"
+        (mode . sh-mode))
+       ("help-mode"
+        (mode . help-mode))
+       ("dired-mode"
+        (mode . dired-mode))
+       ("org-mode"
+        (mode . org-mode))
+       ("svn-status-diff-mode"
+        (mode . svn-status-diff-mode))
+       ("svn-status-mode"
+        (mode . svn-status-mode))
+       ("Info-mode"
+        (mode . Info-mode))
+       ("org-agenda-mode"
+        (mode . org-agenda-mode))
+       ("svn-info-mode"
+        (mode . svn-info-mode))
+       ("awk-mode"
+        (mode . awk-mode))
+       ("html-mode"
+        (mode . html-mode))
+       ("calc-mode"
+        (mode . calc-mode))
+       ("grep-mode"
+        (mode . grep-mode))
+       ("lisp-interaction-mode"
+        (mode . lisp-interaction-mode))
+       ("calendar-mode"
+        (mode . calendar-mode))
+       ("tcl-mode"
+        (mode . tcl-mode))
+       ("conf-space-mode"
+        (mode . conf-space-mode))
+       ("conf-unix-mode"
+        (mode . conf-unix-mode))
+       ("conf-xdefaults-mode"
+        (mode . conf-xdefaults-mode))
+       ("perl-mode"
+        (mode . perl-mode))
+       ("conf-colon-mode"
+        (mode . conf-colon-mode))
+       ("text-mode"
+        (mode . text-mode))
+       ("wisent-grammar-mode"
+        (mode . wisent-grammar-mode))
+       ("sgml-mode"
+        (mode . sgml-mode))
+       ("c++-mode"
+        (mode . c++-mode))
+       ("outline-mode"
+        (mode . outline-mode))
+       ("calc-trail-mode"
+        (mode . calc-trail-mode))
+       ("completion-list-mode"
+        (mode . completion-list-mode)))))))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(ido-ubiquitous-mode t)
@@ -48,7 +142,9 @@
  '(org-lowest-priority 90)
  '(org-mobile-directory "~/org/mobile")
  '(org-mobile-encryption-tempfile "~/org/mobile/orgtmpcrypt")
- '(org-mobile-files (quote (org-agenda-files org-agenda-text-search-extra-files)))
+ '(org-mobile-files
+   (quote
+    (org-agenda-files org-agenda-text-search-extra-files)))
  '(org-mobile-inbox-for-pull "~/org/inbox.org")
  '(org-mobile-use-encryption t)
  '(org-refile-allow-creating-parent-nodes (quote confirm))
@@ -58,8 +154,11 @@
  '(org-refile-use-outline-path (quote file))
  '(org-tab-follows-link t)
  '(org-todo-keyword-faces (quote (("FAIL" . "red") ("ERROR" . "red"))))
- '(org-todo-keywords (quote ((sequence "TODO(t!)" "OPEN(o!)" "|" "DONE(d!)" "ABANDONED(a@)"))))
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t)" "NOW(n!)" "OPEN(o!)" "|" "DONE(d!)" "ABANDONED(a@)"))))
  '(org-track-ordered-property-with-tag t)
+ '(osx-browse-prefer-background t)
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
@@ -80,7 +179,12 @@
  '(tramp-verbose 10)
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
- '(visual-basic-mode-indent 4))
+ '(visual-basic-mode-indent 4)
+ '(w3m-confirm-leaving-secure-page nil)
+ '(w3m-default-display-inline-images t)
+ '(w3m-default-save-directory "~/Downloads")
+ '(w3m-new-session-url "about://bookmark/")
+ '(w3m-pop-up-windows nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
