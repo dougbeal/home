@@ -103,5 +103,6 @@
 
 (require 'cl)
 (message "Installed packages not in packages list: %s" 
-         (set-difference  (set-difference package-activated-list packages-default) 
-                          packages-development))
+         (delete-dups
+          (set-difference  (set-difference package-activated-list packages-default) 
+                           packages-development)))
