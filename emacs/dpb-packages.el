@@ -3,11 +3,11 @@
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
-             '("gnu" . "http://elpa.gnu.org/packages/") t)
+             '("gnu" . "http://elpa.gnu.org/packages/") )
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") )
 (add-to-list 'package-archives 
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
 
@@ -24,6 +24,9 @@
                           'melpa
                           'org
                           'smex
+                          'help-fns+
+                          'w3m
+                          'twittering-mode
 )
   "Libraries that should be installed by default.")
 
@@ -61,7 +64,7 @@
                               'virtualenv
                               'visual-regexp
                               'visual-regexp-steroids
-                              'w3m
+
                               'xml-rpc
                               'yaml-mode
 
@@ -97,13 +100,23 @@
          (setq message-log-max t)
          (message "error: %s" (error-message-string err)))))))
 
-(with-demoted-errors (package-refresh-contents))
-(with-demoted-errors (elpa-install packages-default))
-(with-demoted-errors (elpa-install packages-development))
+(unwind-protect
+    (let ((debug-on-error nil))
+      (with-demoted-errors "ERROR during init %s" (package-refresh-contents))))
+(unwind-protect
+    (let ((debug-on-error nil))
+      (with-demoted-errors "ERROR during init %s" (elpa-install packages-default))))
+
+(unwind-protect
+    (let ((debug-on-error nil))
+      (with-demoted-errors "ERROR during init %s" (elpa-install packages-development))))
 
 
-(require 'cl)
-(message "Installed packages not in packages list: %s" 
-         (delete-dups
-          (set-difference  (set-difference package-activated-list packages-default) 
-                           packages-development)))
+
+(require 'cl-lib)
+(defun dpb-missing-packages ()
+  "List packages that are installed but missing from lists."
+  (delete-dups
+   (set-difference  (set-difference package-activated-list packages-default) 
+                    packages-development)))
+(message "Installed packages not in packages list: %s" (dpb-missing-packages))
