@@ -101,9 +101,8 @@ interactively by “eval-buffer”."
 (safe-load (fullpath-relative-to-current-file "dpb-emacs.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-org.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-twittering.el"))
-(safe-load (fullpath-relative-to-current-file "dpb-keybindings.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-perspective.el"))
-
+(safe-load (fullpath-relative-to-current-file "dpb-keybindings.el"))
 
 
 (setenv "PYMACS_PYTHON" "python2.7")
