@@ -96,9 +96,11 @@ interactively by “eval-buffer”."
 (when (equal system-type 'darwin)  
   (load (fullpath-relative-to-current-file "dpb-osx.el")))
 
+(safe-load (fullpath-relative-to-current-file "dpb-help.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-development.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-emacs.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-org.el"))
+(safe-load (fullpath-relative-to-current-file "dpb-twittering.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-keybindings.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-perspective.el"))
 
