@@ -64,7 +64,7 @@
                               'w3m
                               'xml-rpc
                               'yaml-mode
-                              'yasnippet-bundle
+
                               )
   "Libraries for development that should be installed by default.")
 
@@ -81,6 +81,7 @@
                           ;; 'ido-better-flex
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
+;;                              'yasnippet-bundle
 
 (defun elpa-install (list)
   "Install all packages that aren't installed."
