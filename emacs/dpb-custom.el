@@ -8,7 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(blink-matching-paren-on-screen t)
- '(browse-url-browser-function (quote eww-browse-url))
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(browse-url-text-browser "eww-browse-url")
  '(c-basic-offset 4)
  '(c-offsets-alist (quote ((substatement-open . 0))))
