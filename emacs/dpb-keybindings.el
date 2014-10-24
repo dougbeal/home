@@ -6,5 +6,7 @@
 (global-set-key (kbd "C-x r v") 'list-register)
 (global-set-key (kbd "C-`") 'next-error)
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
-(define-key twittering-mode-map (kbd "C-c C-o") 'osx-browse-url)
-(define-key twittering-mode-map (kbd "C-c C-i") 'browse-url-text-emacs)
+(define-key twittering-mode-map (kbd "C-c o") 'osx-browse-url)
+(define-key twittering-mode-map (kbd "C-c e") 'browse-url-text-emacs)
+
+(require 'unbound)
