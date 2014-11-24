@@ -2,3 +2,4 @@
 .#*
 \#*#
 *.elc
+/emacs/dpb-sensitive.el
