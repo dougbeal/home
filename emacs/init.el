@@ -105,6 +105,8 @@ interactively by “eval-buffer”."
 (safe-load (fullpath-relative-to-current-file "dpb-twittering.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-perspective.el"))
 (safe-load (fullpath-relative-to-current-file "dpb-keybindings.el"))
+;;; one line config items that haven't graduated to their own file
+(safe-load (fullpath-relative-to-current-file "dpb-config.el"))
 
 
 (setenv "PYMACS_PYTHON" "python2.7")
