@@ -29,6 +29,7 @@
                :channels ("#rcirc" "#atp" "#relayfm" "#5by5" "#theincomparable")
                :encryption tls))))
 
+
 (setq rcirc-authinfo
       `(("irc.freenode.net" nickserv "dougbeal" ,dpb/sensitive/irc/nick/freenode.net)))
 (provide 'dpb-config)
