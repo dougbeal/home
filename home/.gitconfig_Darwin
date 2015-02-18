@@ -11,6 +11,7 @@
 
 [push]
 	default = simple
+
 [filter "media"]
 	required = true
 	clean = git media clean %f
