@@ -7,17 +7,27 @@
 ;; 
 
 ;;; Code:
-
-(setq rcirc-server-alist
-      `(("irc.freenode.net"
-        :nick "dougbeal"
-        :port 6697
-        :user-name "dougbeal"
-        :password
-        ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
-        :full-name "Douglas Beal"
-        :channels ("#rcirc" "#atp" "#relayfm" "#5by5" "#theincomparable")
-        :encryption tls)))
+(let* ((name (system-name)) ;(name "doubeal-mb")
+       (system-name-abv
+        (cond 
+         ((equal name "macnboss")
+          "")
+         ((string-match ".*-\\([^-]+\\)$" name)
+          (match-string 1 name))
+         (t
+          "er"))))  ;(message system-name-abv))
+        
+      (setq rcirc-server-alist
+            `(("irc.freenode.net"
+               :nick
+               ,(concat "dougbeal" system-name-abv)
+               :port 6697
+               :user-name "dougbeal"
+               :password
+               ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
+               :full-name "Douglas Beal"
+               :channels ("#rcirc" "#atp" "#relayfm" "#5by5" "#theincomparable")
+               :encryption tls))))
 
 (setq rcirc-authinfo
       `(("irc.freenode.net" nickserv "dougbeal" ,dpb/sensitive/irc/nick/freenode.net)))
