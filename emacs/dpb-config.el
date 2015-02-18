@@ -10,7 +10,7 @@
 
 (setq rcirc-server-alist
       `(("irc.freenode.net"
-        :nick "dougbeal"
+        :nick "dougbeal|m"
         :port 6697
         :user-name "dougbeal"
         :password
