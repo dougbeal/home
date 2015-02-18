@@ -77,7 +77,6 @@
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
-
  '(rcirc-track-minor-mode t)
  '(sh-shell-file "/bin/bash")
  '(shell-command-default-error-buffer nil t)
