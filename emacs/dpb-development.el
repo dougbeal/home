@@ -67,6 +67,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.swift$" . swift-mode))
 (append '("\\.mel\\'" . 'mel-mode) auto-mode-alist)
 (append '("\\.alf\\'" . 'tcl-mode) auto-mode-alist)
 (append '("\\.applescript$" . 'applescript-mode) auto-mode-alist)
@@ -125,7 +126,7 @@
      (load-ropemacs)))
 (add-to-list 'nose2-project-names "")
 
-
+(add-to-list 'load-path (expand-file-name "~/git/swift-mode/dist"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; elisp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -144,6 +145,7 @@
 (add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(add-to-list 'flycheck-checker 'swift)
 
 (setq inferior-js-program-command "node --interactive") ;; run-js
 (setenv "NODE_NO_READLINE" "1")
