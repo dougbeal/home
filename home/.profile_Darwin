@@ -19,3 +19,6 @@ PS1='\h:\W \u\$ '
 # todo: update virtualenvwarpper
 #source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi

@@ -1,5 +1,5 @@
 #!/bin/sh
-brew install nodejs python ruby markdown
+brew install nodejs python ruby markdown git bash-completion 
 (
     npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector async mocha
     echo "node packages installed."
