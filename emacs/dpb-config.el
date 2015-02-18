@@ -12,15 +12,15 @@
         (cond 
          ((equal name "macnboss")
           "")
-         ((string-match ".*-\\([^-]+\\)$" name)
-          (match-string 1 name))
+         ((string-match ".*-\\([^-.]+\\)" name)
+          (concat "|" (match-string 1 name) ))
          (t
-          "er"))))  ;(message system-name-abv))
+          "|er"))))  ;(message system-name-abv))
         
       (setq rcirc-server-alist
             `(("irc.freenode.net"
                :nick
-               ,(concat "dougbeal" system-name-abv)
+               ,(concat "dougbeal" system-name-abv)                        
                :port 6697
                :user-name "dougbeal"
                :password
