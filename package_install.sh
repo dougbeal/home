@@ -1,5 +1,10 @@
 #!/bin/sh
-brew install nodejs python ruby markdown git bash-completion 
+brew install nodejs python ruby markdown git bash-completion cask
+(
+    ## os x development
+    brew install carthage
+)&
+
 (
     npm install -g coffee-script coffeelint jshint js2coffee exec-sync node-inspector async mocha
     echo "node packages installed."
@@ -9,6 +14,6 @@ brew install nodejs python ruby markdown git bash-completion
     echo "python packages installed."
 )&
 (
-    gem install tidy github-pages jekyll rake json
+    gem install tidy github-pages jekyll json
     echo "ruby packages installed."
 )&
