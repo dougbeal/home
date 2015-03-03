@@ -11,3 +11,6 @@
 	path = git/gist.sh
 	url = https://github.com/dougbeal/gist.sh.git
 
+[submodule "xcode/xcode-themes"]
+	path = xcode/xcode-themes
+	url = https://github.com/dougbeal/xcode-themes
