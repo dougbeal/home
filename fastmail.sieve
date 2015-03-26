@@ -44,7 +44,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.lists.ckd";
 }elsif header :contains "from" [ "news@email.kayak.com", "Sale@Sales.Overstock.com", "promo@e.newegg.com", "service@cs.frys.com", "specials@email.officedepot.com", "Dell Direct", "offers@deepdiscountpromotions.com", "dell.com", "mp.member@alaskaair.com", "CostcoNews@online.costco.com", "zappos@zappos.com", "service@outpost.com", "growers@harrisseeds.com", "promo@email.newegg.com", "e-statement@mymileageplan.com", "enews.becu.org", "cstacey.SouthTacomaHonda@gs.reyrey.com", "emeraldfortestsugar.com", "plentyoffish.com", "capovw.com", "vw.com", "news@americandiabeteswholesale.com", "no-reply@mgo.com", "TargetNews@emails.target.com", "salesmrk@gardenersedge.com", "shop@email.macys.com", "info@pce.uw.edu", "AlaskaairNewsletter@myalaskaair.com", "overlords@email.thinkgeek.com", "att@e.att-mail.com", "no-reply@keyringapp.com",
                                  "consumerreports_online@email.consumerreports.org", "reply@e.taxact.com",
-                                 "monoprice@news.monoprice.com", "no-reply@woot.com", "info@unexpectedproductions.org"] {
+                                 "monoprice@news.monoprice.com", "no-reply@woot.com", "info@unexpectedproductions.org",
+                                 "tordotcom@mail.macmillan.com"] {
   fileinto "INBOX.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com"] {
   fileinto "INBOX.ads";
