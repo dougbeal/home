@@ -34,7 +34,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   # has to be contains, for foobar <gritmonkey@gritmonkey.com>
   stop;
 # leaked email addresses
-}elsif header :contains "X-Delivered-to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com", "ameritrade.com@dougbeal.com", "gearfordean@dougbeal.com", "emerald.forest@dougbeal.com",] {
+}elsif header :contains "X-Delivered-to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com", "ameritrade.com@dougbeal.com", "gearfordean@dougbeal.com", "emerald.forest@dougbeal.com"] {
   fileinto "INBOX.spam.manual";
 }elsif header :contains "from" ["eventful.com"] {
   fileinto "INBOX.spam.manual";
@@ -45,8 +45,6 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 }elsif header :contains "from" [ "news@email.kayak.com", "Sale@Sales.Overstock.com", "promo@e.newegg.com", "service@cs.frys.com", "specials@email.officedepot.com", "Dell Direct", "offers@deepdiscountpromotions.com", "dell.com", "mp.member@alaskaair.com", "CostcoNews@online.costco.com", "zappos@zappos.com", "service@outpost.com", "growers@harrisseeds.com", "promo@email.newegg.com", "e-statement@mymileageplan.com", "enews.becu.org", "cstacey.SouthTacomaHonda@gs.reyrey.com", "emeraldfortestsugar.com", "plentyoffish.com", "capovw.com", "vw.com", "news@americandiabeteswholesale.com", "no-reply@mgo.com", "TargetNews@emails.target.com", "salesmrk@gardenersedge.com", "shop@email.macys.com", "info@pce.uw.edu", "AlaskaairNewsletter@myalaskaair.com", "overlords@email.thinkgeek.com", "att@e.att-mail.com", "no-reply@keyringapp.com",
                                  "consumerreports_online@email.consumerreports.org", "reply@e.taxact.com",
                                  "monoprice@news.monoprice.com", "no-reply@woot.com", "info@unexpectedproductions.org"] {
-  fileinto "INBOX.ads";
-} elsif header :contains "to"  {
   fileinto "INBOX.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com"] {
   fileinto "INBOX.ads";
