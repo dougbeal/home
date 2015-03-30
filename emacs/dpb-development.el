@@ -6,7 +6,7 @@
 ;(require 'w3m-load)
 ;(require 'visual-basic-mode)
 (require 'php-mode)
-(require 'flycheck)
+
 (require 'github-issues)
 
 (setq ropemacs-enable-shortcuts nil)
@@ -52,6 +52,7 @@
 (autoload 'mel-mode "mel-mode" "Mel mode" t )
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 
+
 ;(autoload 'python-mode "dpb-python-load-hook" "" t )
 ;(add-hook 'python-mode-hook 'jedi:setup)
 
@@ -67,7 +68,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.swift$" . swift-mode))
+
 (append '("\\.mel\\'" . 'mel-mode) auto-mode-alist)
 (append '("\\.alf\\'" . 'tcl-mode) auto-mode-alist)
 (append '("\\.applescript$" . 'applescript-mode) auto-mode-alist)
@@ -126,7 +127,7 @@
      (load-ropemacs)))
 (add-to-list 'nose2-project-names "")
 
-(add-to-list 'load-path (expand-file-name "~/git/swift-mode/dist"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; elisp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -144,8 +145,8 @@
 (add-hook 'emacs-lisp-mode-hook 'erefactor-lazy-highlight-turn-on)
 (add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(add-to-list 'flycheck-checker 'swift)
+
+
 
 (setq inferior-js-program-command "node --interactive") ;; run-js
 (setenv "NODE_NO_READLINE" "1")
@@ -175,6 +176,12 @@
 (autoload 'apples-mode "apples-mode" "Happy AppleScripting!" t)
 (autoload 'apples-open-scratch "apples-mode" "Open scratch buffer for AppleScript." t)
 (add-to-list 'auto-mode-alist '("\\.\\(applescri\\|sc\\)pt\\'" . apples-mode))
+
+(require 'flycheck) 
+(add-to-list 'load-path (expand-file-name "~/git/swift-mode"))
+(add-to-list 'auto-mode-alist '("\\.swift$" . swift-mode))
+(add-to-list 'flycheck-checker 'swift)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)
