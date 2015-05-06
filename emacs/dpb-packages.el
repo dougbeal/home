@@ -69,7 +69,10 @@
                               'xml-rpc
                               'yaml-mode
                               'elnode
-
+                              'go-mode
+                              'jekyll-modes
+                              'osx-plist
+                              'swift-mode
                               )
   "Libraries for development that should be installed by default.")
 
