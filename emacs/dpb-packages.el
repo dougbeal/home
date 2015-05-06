@@ -5,9 +5,9 @@
 (add-to-list 'package-archives
              '("gnu" . "http://elpa.gnu.org/packages/") )
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") )
-(add-to-list 'package-archives 
-              '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("melpa" . "http://melpa.org/packages/") )
+;;(add-to-list 'package-archives 
+;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
 
@@ -21,12 +21,14 @@
                           'idomenu
                           'load-dir
                           'magit
-                          'melpa
                           'org
                           'smex
                           'help-fns+
                           'w3m
-                          'twittering-mode
+                          'unbound
+                          'epl
+                          'edit-server
+                          'edit-server-htmlize
 )
   "Libraries that should be installed by default.")
 
@@ -35,13 +37,12 @@
                               'apples-mode
                               'coffee-mode 
                               'css-mode
-                              'css-mode
                               'dsvn
                               'erefactor
                               'flycheck
                               'flycheck-color-mode-line
+                              'flycheck-coffee
                               'gist
-                              'highlight-80+
                               'highlight-parentheses
                               'inf-ruby
                               'jedi
@@ -67,20 +68,12 @@
 
                               'xml-rpc
                               'yaml-mode
+                              'elnode
 
                               )
   "Libraries for development that should be installed by default.")
 
 
-                              ;; 'flymake
-                              ;; 'flymake-coffee
-                              ;; 'flymake-jslint
-                              ;; 'flymake-jshint
-                              ;; 'flymake-json
-                              ;; 'flymake-python
-                              ;; 'flymake-ruby
-                              ;; 'flymake-shell
-                              ;; 'flymake-css
                           ;; 'ido-better-flex
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no

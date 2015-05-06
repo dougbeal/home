@@ -36,5 +36,8 @@ stow --verbose=3 "--dir=$src" --target="$stow_source/bin" --stow gist.sh
 git submodule init
 git submodule update
 
+
 ./package_install.sh
 
+themeDir="~/Library/Developer/Xcode/UserData/FontAndColorThemes/"
+stow --verbose=3 "$stow_source/xcode/xcode-themes" --target "$themeDir" --stow *.dvtcolortheme
