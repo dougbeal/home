@@ -26,7 +26,7 @@
                :password
                ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
                :full-name "Douglas Beal"
-               :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#goodstuff")
+               :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#goodstuff", "#swift-lang")
                :encryption tls))))
 
 
