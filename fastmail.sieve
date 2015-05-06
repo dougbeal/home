@@ -47,7 +47,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "monoprice@news.monoprice.com", "no-reply@woot.com", "info@unexpectedproductions.org",
                                  "tordotcom@mail.macmillan.com", "chefmail@bigoven.com", "zennioptical@reply.bronto.com",
                                  "contact@zapier.com", "americansciencesurplus@sciplus.com", "amtrak@e-mail.amtrak.com",
-                                 "vimeo@email.vimeo.com", "ikea-usa@mail.ikea-usa.com", "hhonors@h1.hiltonhhonors.com"] {
+                                 "vimeo@email.vimeo.com", "ikea-usa@mail.ikea-usa.com", "hhonors@h1.hiltonhhonors.com",
+                                 "wyndhamrewards@e-mails.wyndhamrewards.com"] {
   fileinto "INBOX.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com"] {
   fileinto "INBOX.ads";
