@@ -37,6 +37,7 @@
                               'apples-mode
                               'coffee-mode 
                               'css-mode
+                              'sass-mode
                               'dsvn
                               'erefactor
                               'flycheck
