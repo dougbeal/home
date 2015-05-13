@@ -14,6 +14,6 @@ brew install nodejs python ruby markdown git bash-completion cask
     echo "python packages installed."
 )&
 (
-    gem install tidy github-pages jekyll json
+    gem install tidy github-pages jekyll json bundle
     echo "ruby packages installed."
 )&
