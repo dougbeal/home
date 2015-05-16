@@ -14,12 +14,47 @@
 ;;(define-key twittering-mode-map (kbd "C-c e") 'browse-url-text-emacs)
 (require 'key-chord)
 (key-chord-mode 1)
-(key-chord-define-global "11" "!")
-(key-chord-define-global "''" "\"")
-(key-chord-define-global ",," "<")
-(key-chord-define-global ".." ">")
-(key-chord-define-global "99" "(")
-(key-chord-define-global "00" ")")
+; generate template
+; (progn (insert "\n") (mapcar (lambda (key) (insert (format "(\"%i\" . \"x\")\n" key))) (number-sequence 0 9)))
+
+
+; sorted by kinesis layout
+
+(setq dpb/key-chord-symbol-map '(
+                                 ("`" . "~")
+                                 ("\\" . "|")
+                                 (";" . ":")
+                                 ("'" . "\"")
+                                 ("," . "<")
+                                 ("." . ">")
+                                 ("/" . "?")
+                                 ("[" . "{")
+                                 ("]" . "}")
+                                 ("=" . "+")
+                                 ("0" . ")")
+                                 ("1" . "!")
+                                 ("2" . "@")
+                                 ("3" . "#")
+                                 ("4" . "$")
+                                 ("5" . "%")
+                                 ("6" . "^")
+                                 ("7" . "&")
+                                 ("8" . "*")
+                                 ("9" . "(")
+                                 ("-" . "_")
+                                 ))
+
+(defun dpb/key-chord-clear ()
+    (mapcar (lambda (tu)
+              (key-chord-define-global
+               (concat (car tu) (car tu)) nil))
+            dpb/key-chord-symbol-map))
+
+(mapcar (lambda (tu)
+          (key-chord-define-global
+           (concat (car tu) (car tu)) (cdr tu)))
+        dpb/key-chord-symbol-map)
+
 
 
 (require 'unbound)
