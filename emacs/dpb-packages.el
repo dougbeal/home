@@ -13,6 +13,7 @@
 
 (defvar packages-default (list
                           'auto-complete
+                          'key-chord
                           'dash
                           'flx
                           'flx-ido
