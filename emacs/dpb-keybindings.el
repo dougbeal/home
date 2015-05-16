@@ -55,6 +55,9 @@
            (concat (car tu) (car tu)) (cdr tu)))
         dpb/key-chord-symbol-map)
 
+(defun disable-key-chord-mode ()
+  (set (make-local-variable 'input-method-function) nil))
 
+(add-hook 'minibuffer-setup-hook #'disable-key-chord-mode)
 
 (require 'unbound)
