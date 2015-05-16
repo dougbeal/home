@@ -12,5 +12,14 @@
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;;(define-key twittering-mode-map (kbd "C-c o") 'osx-browse-url)
 ;;(define-key twittering-mode-map (kbd "C-c e") 'browse-url-text-emacs)
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define-global "11" "!")
+(key-chord-define-global "''" "\"")
+(key-chord-define-global ",," "<")
+(key-chord-define-global ".." ">")
+(key-chord-define-global "99" "(")
+(key-chord-define-global "00" ")")
+
 
 (require 'unbound)
