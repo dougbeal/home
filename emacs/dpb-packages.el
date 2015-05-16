@@ -13,23 +13,23 @@
 
 (defvar packages-default (list
                           'auto-complete
-                          'key-chord
                           'dash
+                          'edit-server
+                          'edit-server-htmlize
+                          'epl
                           'flx
                           'flx-ido
                           'google-this
                           'grizzl
+                          'help-fns+
                           'idomenu
+                          'key-chord
                           'load-dir
                           'magit
                           'org
                           'smex
-                          'help-fns+
-                          'w3m
                           'unbound
-                          'epl
-                          'edit-server
-                          'edit-server-htmlize
+                          'w3m
 )
   "Libraries that should be installed by default.")
 
