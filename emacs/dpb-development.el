@@ -68,6 +68,7 @@
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . sass-mode))
 
 (append '("\\.mel\\'" . 'mel-mode) auto-mode-alist)
 (append '("\\.alf\\'" . 'tcl-mode) auto-mode-alist)
