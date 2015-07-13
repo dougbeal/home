@@ -34,7 +34,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   # has to be contains, for foobar <gritmonkey@gritmonkey.com>
   stop;
 # leaked email addresses
-}elsif header :contains "X-Delivered-to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com", "ameritrade.com@dougbeal.com", "gearfordean@dougbeal.com", "emerald.forest@dougbeal.com"] {
+}elsif header :contains "X-Delivered-to" ["monkey@gritmonkey.com", "adboe.com@dougbeal.com", "ameritrade.com@dougbeal.com", "gearfordean@dougbeal.com", "emerald.forest@dougbeal.com", "caskers.com@dougbeal.com"] {
   fileinto "INBOX.spam.manual";
 }elsif header :contains "from" ["eventful.com"] {
   fileinto "INBOX.spam.manual";
