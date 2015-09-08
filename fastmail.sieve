@@ -48,9 +48,12 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "tordotcom@mail.macmillan.com", "chefmail@bigoven.com", "zennioptical@reply.bronto.com",
                                  "contact@zapier.com", "americansciencesurplus@sciplus.com", "amtrak@e-mail.amtrak.com",
                                  "vimeo@email.vimeo.com", "ikea-usa@mail.ikea-usa.com", "hhonors@h1.hiltonhhonors.com",
-                                 "wyndhamrewards@e-mails.wyndhamrewards.com"] {
+                                 "wyndhamrewards@e-mails.wyndhamrewards.com", "rei_gearmail@notices.rei.com",
+                                 "rei_gearmail@notices.rei.com", "deals@ifly.alaskaair.com",
+                                 "deals@ifly.alaskaair.com", "hello@cottonbureau.com", "help@stickermule.com",
+                                 "linkedin@e.linkedin.com", "tor-forge@mail.macmillan.com"] {
   fileinto "INBOX.ads";
-}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com"] {
+}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
   fileinto "INBOX.ads";
 }elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
