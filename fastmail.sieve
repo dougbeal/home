@@ -39,9 +39,9 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 }elsif header :contains "from" ["eventful.com"] {
   fileinto "INBOX.spam.manual";
 }elsif header :contains "List-Id" "studiosysadmins.com" {
-  fileinto "INBOX.lists.ssa";
+  fileinto "INBOX.monitor.ssa";
 }elsif header :contains "Sender" "sender@lists.bigtent.com" {
-  fileinto "INBOX.lists.ckd";
+  fileinto "INBOX.tr.lists.ckd";
 }elsif header :contains "from" [ "news@email.kayak.com", "Sale@Sales.Overstock.com", "promo@e.newegg.com", "service@cs.frys.com", "specials@email.officedepot.com", "Dell Direct", "offers@deepdiscountpromotions.com", "dell.com", "mp.member@alaskaair.com", "CostcoNews@online.costco.com", "zappos@zappos.com", "service@outpost.com", "growers@harrisseeds.com", "promo@email.newegg.com", "e-statement@mymileageplan.com", "enews.becu.org", "cstacey.SouthTacomaHonda@gs.reyrey.com", "emeraldfortestsugar.com", "plentyoffish.com", "capovw.com", "vw.com", "news@americandiabeteswholesale.com", "no-reply@mgo.com", "TargetNews@emails.target.com", "salesmrk@gardenersedge.com", "shop@email.macys.com", "info@pce.uw.edu", "AlaskaairNewsletter@myalaskaair.com", "overlords@email.thinkgeek.com", "att@e.att-mail.com", "no-reply@keyringapp.com",
                                  "consumerreports_online@email.consumerreports.org", "reply@e.taxact.com",
                                  "monoprice@news.monoprice.com", "no-reply@woot.com", "info@unexpectedproductions.org",
@@ -52,52 +52,53 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "rei_gearmail@notices.rei.com", "deals@ifly.alaskaair.com",
                                  "deals@ifly.alaskaair.com", "hello@cottonbureau.com", "help@stickermule.com",
                                  "linkedin@e.linkedin.com", "tor-forge@mail.macmillan.com", "info@supercook.com"] {
-  fileinto "INBOX.ads";
+  fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
-  fileinto "INBOX.ads";
+  fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
 } elsif  header :contains "subject" "Mac-users" {
-  fileinto "INBOX.mac";
+  fileinto "INBOX.tr.mac";
 } elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "@cs.wisc.edu" {
-  fileinto "INBOX.edu.wisconsin";
+  fileinto "INBOX.tr.edu.wisconsin";
 } elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] "cs-wisc@dougbeal.com" {
-  fileinto "INBOX.edu.wisconsin";
+  fileinto "INBOX.tr.edu.wisconsin";
 } elsif  header :contains ["to", "cc", "resent-to"] "uw-systems@cs.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains "subject" "cs-grads" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains "subject" "\[Cse" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "cs-ugrads" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "rawfish@cs.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "ieee@dougbeal.com" {
-  fileinto "INBOX.subscriptions.ieee";
+  fileinto "INBOX.tr.subscriptions.ieee";
 } elsif  header :contains "subject" "Cs-macusers" {
-  fileinto "INBOX.mac";
+  fileinto "INBOX.tr.mac";
 } elsif  header :contains "from" "ameritrade" {
-  fileinto "INBOX.finances.ameritrade";
+  fileinto "INBOX.tr.finances.ameritrade";
 } elsif  header :contains "subject" "\[Plex86-" {
-  fileinto "INBOX.software.plex86";
+  fileinto "INBOX.tr.software.plex86";
 } elsif header :contains ["Newsgroups"] "uw-cs.ugrads.openforum" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "cs-ugrads-general@cs.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "cs-ugrads-openforum@cs.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains "subject" "\[Cs-ugrads-openforum\]" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "movies@cs.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "engr_students@engr.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif  header :contains ["to", "cc", "resent-to"] "students@engr.washington.edu" {
-  fileinto "INBOX.edu.washington";
+  fileinto "INBOX.tr.edu.washington";
 } elsif allof( header :contains ["from"] "cust.service03@amazon.com", header :contains "subject" "Your Amazon Kindle document is here") {
-  fileinto "INBOX.amazon.kindle-documents";
+  fileinto "INBOX.tr.amazon.kindle-documents";
 } 
+ 
 
 
 
@@ -128,9 +129,9 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   stop;
 # }
 # if header :contains "subject" "Mac-users" {
-#   fileinto "INBOX.mac";
+#   fileinto "INBOX.tr.mac";
 # } elsif header :contains "subject" "Cs-macusers" {
-#   fileinto "INBOX.mac";
+#   fileinto "INBOX.tr.mac";
 # } elsif header :contains "subject" "cs-grads" {
 #   fileinto "INBOX";
 # } elsif header :contains ["to", "cc", "resent-to"] "uw-systems@cs.washington.edu" {
@@ -140,15 +141,15 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 # } elsif header :contains ["To", "Cc", "From", "Subject", "Date", "Content-Type", "Delivered-To", "In-Reply-To", "List-Post", "List-ID", "Mailing-List", "Message-ID", "Received", "References", "Reply-to", "Return-Path", "Sender", "X-AntiAbuse", "X-Apparently-From", "X-Attached", "X-Delivered-to", "X-LinkName", "X-Mail-from", "X-Resolved-to", "X-Sender", "X-Sender-IP", "X-Spam-charsets", "X-Spam-hits", "X-Spam-known-sender", "X-Spam-source", "X-Version"] "rawfish@cs.washington.edu" {
 #   fileinto "INBOX";
 # } elsif header :contains ["to", "cc", "resent-to"] "ieee@dougbeal.com" {
-#   fileinto "INBOX.subscriptions.ieee";
+#   fileinto "INBOX.tr.subscriptions.ieee";
 # } elsif header :contains "subject" "[Cse" {
 #   fileinto "INBOX";
 # } elsif header :contains ["to", "cc", "resent-to"] "dougbeal+dball@fastmail.fm" {
 #   fileinto "Inbox";
 # } elsif header :contains "from" "ameritrade" {
-#   fileinto "INBOX.finances.Datek";
+#   fileinto "INBOX.tr.finances.Datek";
 # } elsif header :contains "subject" "[Plex86-" {
-#   fileinto "INBOX.software.plex86";
+#   fileinto "INBOX.tr.software.plex86";
 # } elsif header :contains "subject" "[Cs-ugrads-openforum]" {
 #   fileinto "INBOX";
 # } elsif header :contains ["to", "cc", "resent-to"] "cs-ugrads-openforum@cs.washington.edu" {
@@ -173,4 +174,3 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   removeflag "\\Seen";
 # } 
 # ===END-GENERATED=== Text between markers will be automatically replaced
- 
