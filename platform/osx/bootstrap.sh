@@ -6,7 +6,7 @@ brew install stow
 brew install bash
 bash ~/git/home/install.sh
 brew install Caskroom/cask/brew-cask
-brew install emacs
+brew install emacs --with-cocoa --with-d-bus --with-gnutls --with-imagemagik --with-librsvg --with-mailutils
 brew cask install iterm
 brew cask install divvy
 brew cask install google-chrome
