@@ -1,4 +1,5 @@
 #!/bin/sh
+#bash "$(curl -fsSL https://raw.githubusercontent.com/dougbeal/home/master/platform/osx/bootstrap.sh)"
 git clone https://github.com/dougbeal/home ~/git/home
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install iterm2
