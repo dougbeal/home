@@ -28,5 +28,7 @@ PS1='\h:\W \u\$ '
 # todo: update virtualenvwarpper
 #source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
 
-eval "$(rbenv init -)"
+if [[ -e "$(command -v rbenv)" ]]; then
+    eval "$(rbenv init -)"
+fi
 
