@@ -1,6 +1,15 @@
 # -*- mode: sh; -*-
 $(verbose echo ".profile_Darwin" )
-export PATH=${HOME}/bin:${HOME}/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
+BREW_PATH=""
+if [[ -e "$(command -v brew)" ]]; then
+    BREW_PATH="$(brew --prefix coreutils)/libexec/gnubin"
+    if [[ -f "$(brew --prefix)/etc/bash_completion" ]]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
+fi
+
+    
+export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
 export MANPATH=/usr/local/share/man:$MANPATH
 
 #todo: update pymacs path?
@@ -18,7 +27,6 @@ PS1='\h:\W \u\$ '
 #export PATH=$PATH:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/
 # todo: update virtualenvwarpper
 #source /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh 
+
 eval "$(rbenv init -)"
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+

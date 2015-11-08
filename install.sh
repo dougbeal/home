@@ -5,7 +5,7 @@ source "$this/sh/common.sh"
 ############################################################
 # generate .emacs file, which loads repo init.el  
 if [ ! -e ~/.emacs ]; then
-    ./generate_dotemacs.sh > $HOME/.emacs
+    $this/generate_dotemacs.sh > $HOME/.emacs
 fi
 
 stow_source="$this"
@@ -37,7 +37,7 @@ git submodule init
 git submodule update
 
 
-./package_install.sh
+$this/package_install.sh
 
 themeDir="~/Library/Developer/Xcode/UserData/FontAndColorThemes/"
 stow --verbose=3 "$stow_source/xcode/xcode-themes" --target "$themeDir" --stow *.dvtcolortheme
