@@ -1,5 +1,5 @@
 #!/bin/sh
-brew install nodejs python ruby markdown git bash-completion cask
+brew install nodejs python ruby markdown git bash-completion cask ispell
 (
     ## os x development
     brew install carthage
