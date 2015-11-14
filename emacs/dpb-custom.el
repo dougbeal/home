@@ -78,6 +78,7 @@
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
  '(rcirc-track-minor-mode t)
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(sh-shell-file "/bin/bash")
  '(shell-command-default-error-buffer nil t)
  '(shell-file-name "/bin/bash")
