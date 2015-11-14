@@ -9,7 +9,7 @@ if [[ -e "$(command -v brew)" ]]; then
 fi
 
     
-export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
+export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/npm/bin:$PATH
 export MANPATH=/usr/local/share/man:$MANPATH
 
 #todo: update pymacs path?
