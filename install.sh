@@ -24,6 +24,7 @@ mkdir -p "$dst"
 stow --verbose=3 "--dir=$stow_source" --target="$dst" --stow .ssh
 
 # to ~/bin
+mkdir -p $this/bin/
 src="$stow_source/bin/"
 dst="$stow_destination/bin"
 ln -s "$src" "$dst" 
