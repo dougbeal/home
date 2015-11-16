@@ -14,3 +14,6 @@
 [submodule "xcode/xcode-themes"]
 	path = xcode/xcode-themes
 	url = https://github.com/dougbeal/xcode-themes
+[submodule "rbenv"]
+	path = rbenv
+	url = https://github.com/sstephenson/rbenv.git
