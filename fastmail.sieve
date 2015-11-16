@@ -53,7 +53,16 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "deals@ifly.alaskaair.com", "hello@cottonbureau.com", "help@stickermule.com",
                                  "linkedin@e.linkedin.com", "tor-forge@mail.macmillan.com", "info@supercook.com",
                                  "starwood@starwood.delivery.net", "newsletter@cajuncreations.com", "deals@deals.frys.com",
-                                 "mileage.plan@ifly.alaskaair.com"] {
+                                 "mileage.plan@ifly.alaskaair.com",
+                                 "updates@amtrakguestrewards.com",
+                                 "newsletter@ifttt.com",
+                                 "subscribe@sleepez.com",
+                                 "do-not-reply@jetpens.com",
+                                 "sales@andersonpens.com",
+                                 "hello@getpocket.com",
+                                 "starbucks@e.starbucks.com",
+                                 "rei_storeevents@notices.rei.com"
+                                 ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
   fileinto "INBOX.tr.ads";
