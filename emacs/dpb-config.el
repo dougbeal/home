@@ -32,6 +32,8 @@
 
 (setq rcirc-authinfo
       `(("irc.freenode.net" nickserv "dougbeal" ,dpb/sensitive/irc/nick/freenode.net)))
+(require 'emojify)
+(global-emojify-mode)
 (provide 'dpb-config)
 
 ;;; dpb-config.el ends here
