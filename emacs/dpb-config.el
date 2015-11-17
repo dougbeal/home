@@ -12,7 +12,7 @@
         (cond 
          ((equal name "macnboss")
           "")
-         ((string-match ".*-\\([^-.]+\\)" name)
+         ((string-match ".*-\\([^-.]+\\)\\(.[^-.]+\\)" name)
           (concat "|" (match-string 1 name) ))
          (t
           "|er"))))  ;(message system-name-abv))
