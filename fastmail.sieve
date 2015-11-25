@@ -61,7 +61,12 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "sales@andersonpens.com",
                                  "hello@getpocket.com",
                                  "starbucks@e.starbucks.com",
-                                 "rei_storeevents@notices.rei.com"
+                                 "rei_storeevents@notices.rei.com",
+                                 "staples@easy.staples.com",
+                                 "newsletters@zenvilla.com",
+                                 "mail@humansolution.com",
+                                 "info@okeeffescompany.com",
+                                 "school@unexpectedproductions.org"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
