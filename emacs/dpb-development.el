@@ -8,6 +8,7 @@
 (require 'php-mode)
 
 (require 'github-issues)
+(require 'ws-butler)
 
 (setq ropemacs-enable-shortcuts nil)
 (setq ropemacs-local-prefix "C-c C-p")
@@ -138,6 +139,7 @@
           (lambda ()
             (define-key emacs-lisp-mode-map (kbd "C-c C-v") erefactor-map)))
 
+
 ;;And set these variables correctly.
  `erefactor-lint-path-alist', `erefactor-lint-by-emacsen'
 
@@ -145,6 +147,11 @@
 
 (add-hook 'emacs-lisp-mode-hook 'erefactor-lazy-highlight-turn-on)
 (add-hook 'lisp-interaction-mode-hook 'erefactor-lazy-highlight-turn-on)
+
+
+(add-hook 'emacs-lisp-mode-hook 'ws-butler-mode)
+
+
 
 
 
@@ -173,6 +180,8 @@
              (define-key coffee-mode-map (kbd "C-c >") 'coffee-indent-shift-right)
              (whitespace-mode 't)
              ))
+
+(add-hook 'coffee-mode-hook 'ws-butler-mode)
 
 (autoload 'apples-mode "apples-mode" "Happy AppleScripting!" t)
 (autoload 'apples-open-scratch "apples-mode" "Open scratch buffer for AppleScript." t)
