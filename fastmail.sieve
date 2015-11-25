@@ -76,7 +76,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 "geico.com@dougbeal.com",
 "pensketruckrental.com@dougbeal.com",
 "southtacmoahonda@dougbeal.com",
-"ikea.costa.mesa@dougbeal.com"
+"ikea.costa.mesa@dougbeal.com",
+"mtjc.fm@dougbeal.com"
                                                                                            ] {
   fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
