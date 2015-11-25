@@ -71,7 +71,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  
                                  ] {
   fileinto "INBOX.tr.ads";
-}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
+}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
+"dell@dougbeal.com",
+"geico.com@dougbeal.com",
+"pensketruckrental.com@dougbeal.com",
+"southtacmoahonda@dougbeal.com",
+"ikea.costa.mesa@dougbeal.com"
+                                                                                           ] {
   fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
