@@ -73,12 +73,27 @@
  '(py-python-command "python2.6")
  '(python-python-command "python2.6")
  '(rcirc-authinfo nil)
+ '(rcirc-bright-nicks
+   (quote
+    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
+ '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
- '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(safe-local-variable-values
+   (quote
+    ((eval ignore-errors
+           (push
+            (quote
+             ("Tests" "(\\(\\<ert-deftest\\)\\>\\s *\\(\\(?:\\sw\\|\\s_\\)+\\)?" 2))
+            imenu-generic-expression)
+           (when
+               (string-match-p "test"
+                               (buffer-file-name))
+             (setq emojify-inhibit-emojify-in-current-buffer-p t)))
+     (encoding . utf-8))))
  '(sh-shell-file "/bin/bash")
  '(shell-command-default-error-buffer nil t)
  '(shell-file-name "/bin/bash")
@@ -107,6 +122,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil \.\.\.))))
  '(paren-face-match-light ((((class color)) (:background "gray15" :inverse-video nil))))
- '(smerge-refined-change ((t (:background "grey10")))))
+ '(smerge-refined-change ((t (:background "grey10"))) t))
 
 ; '(url-proxy-services (quote (("http" . "proxy:8888"))))
