@@ -1,0 +1,71 @@
+--(*class:file track, id:30184, index:1, name:A Boy Named Sue,
+--  persistent ID:802F5EC864B9331A, database ID:8700, date added:date
+--  Tuesday, August 4, 2015 at 11:58:17 AM, time:3:46, duration:226.0,
+--  artist:Johnny Cash, album artist:Johnny Cash, composer:Shel
+--  Silverstein, album:The Legend of Johnny Cash, genre:Country, bit
+--  rate:256, sample rate:44100, track count:21, track number:10, disc
+--  count:1, disc number:1, size:8804135, volume adjustment:0,
+--  year:2005, comment:, EQ:, kind:Purchased AAC audio file, video
+--  kind:none, modification date:date Tuesday, August 4, 2015 at
+--  12:06:56 PM, enabled:true, start:0.0, finish:226.0, played count:0,
+--  played date:missing value, skipped count:0, skipped date:missing
+--  value, compilation:false, gapless:missing value, rating:0, bpm:0,
+--  grouping:, podcast:false, iTunesU:false, bookmarkable:false,
+--  bookmark:0.0, shufflable:true, lyrics:, category:, description:,
+--  long description:missing value, show:, season number:0, episode ID:,
+--  episode number:0, unplayed:true, sort name:A Boy Named Sue, sort
+--  album:The Legend of Johnny Cash, sort artist:Johnny Cash, sort
+--  composer:Shel Silverstein, sort album artist:, sort show:, release
+--  date:date Tuesday, October 25, 2005 at 12:00:00 AM, loved:false,
+--  album loved:false*)
+
+tell application "iTunes"
+	log (get properties of first track of current playlist)
+	repeat with track_rating_100 in (tracks of current playlist where rating > 0)
+		
+		set {s_name, s_artist, s_album, s_pid, s_loc} to {name, artist, album, persistent ID, location} of track_rating_100
+		log {s_name, s_artist, s_album, s_loc}
+		set valid_location_list to {}
+		set invalid_location_list to {}
+		set e_playcount to 0
+		set e_rating to 0
+		set e_loved to false
+		set e_dateadded to (current date)
+		
+		repeat with matching_track in (tracks of current playlist where name is s_name and artist is s_artist and album is s_album)
+			log (get name of matching_track)
+			if (get location of matching_track) is missing value then
+				copy matching_track to end of invalid_location_list
+			else
+				copy matching_track to end of valid_location_list
+			end if
+			set mt_playcount to (get played count of matching_track)
+			if e_playcount < mt_playcount then
+				set e_playcount to mt_playcount
+			end if
+			set mt_rating to (get rating of matching_track)
+			if e_rating < mt_rating then
+				set e_rating to mt_rating
+			end if
+			set mt_dateadded to (get date added of matching_track)
+			if e_dateadded > mt_dateadded then
+				log "older date found"
+				set e_dateadded to mt_dateadded
+			end if
+			if (get loved of matching_track) then
+				set e_loved to true
+			end if
+		end repeat
+		log e_playcount
+		log e_rating
+		log invalid_location_list
+		log valid_location_list
+		repeat with matching_track in valid_location_list
+			log (get name of matching_track)
+			set played count of matching_track to e_playcount
+			set rating of matching_track to e_rating
+			set loved of matching_track to e_loved
+			--set date added of matching_track to e_dateadded
+		end repeat
+	end repeat
+end tell

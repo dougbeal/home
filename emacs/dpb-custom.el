@@ -75,7 +75,7 @@
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
    (quote
-    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "")))
+    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
