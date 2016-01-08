@@ -37,8 +37,10 @@
 (defvar packages-development (list
                               'apache-mode
                               'apples-mode
-                              'coffee-mode 
+                              'coffee-mode
+                              'company
                               'css-mode
+                              'dash-functional
                               'dsvn
                               'elnode
                               'erefactor
@@ -66,7 +68,9 @@
                               'pylint
                               'pymacs
                               'rinari
+                              'rspec-mode
                               'ruby-compilation
+                              'ruby-interpolation
                               'ruby-mode
                               'sass-mode
                               'swift-mode
