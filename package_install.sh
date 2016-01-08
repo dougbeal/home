@@ -1,5 +1,5 @@
 #!/bin/sh
-brew install gawk markdown git bash-completion cask ispell
+brew install gawk markdown git bash-completion cask ispell exiftool
 (
 
     brew install nodejs python ruby
@@ -13,7 +13,7 @@ brew install gawk markdown git bash-completion cask ispell
         echo "python packages installed."
     )&
     (
-        gem install tidy github-pages jekyll json bundle
+        gem install tidy github-pages jekyll json bundle maid exiftool
         echo "ruby packages installed."
     )&
     ## os x development    
