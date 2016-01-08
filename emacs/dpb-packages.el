@@ -16,6 +16,7 @@
                           'dash
                           'edit-server
                           'edit-server-htmlize
+                          'emojify
                           'epl
                           'flx
                           'flx-ido
@@ -38,16 +39,18 @@
                               'apples-mode
                               'coffee-mode 
                               'css-mode
-                              'sass-mode
                               'dsvn
+                              'elnode
                               'erefactor
                               'flycheck
-                              'flycheck-color-mode-line
                               'flycheck-coffee
+                              'flycheck-color-mode-line
                               'gist
+                              'go-mode
                               'highlight-parentheses
                               'inf-ruby
                               'jedi
+                              'jekyll-modes
                               'js2-mode
                               'json
                               'jump
@@ -56,6 +59,7 @@
                               'nav
                               'nose
                               'nxml
+                              'osx-plist
                               'paredit
                               'paredit-menu
                               'php-mode
@@ -64,17 +68,14 @@
                               'rinari
                               'ruby-compilation
                               'ruby-mode
+                              'sass-mode
+                              'swift-mode
                               'virtualenv
                               'visual-regexp
                               'visual-regexp-steroids
-
+                              'ws-butler
                               'xml-rpc
                               'yaml-mode
-                              'elnode
-                              'go-mode
-                              'jekyll-modes
-                              'osx-plist
-                              'swift-mode
                               )
   "Libraries for development that should be installed by default.")
 

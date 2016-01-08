@@ -24,6 +24,7 @@ mkdir -p "$dst"
 stow --verbose=3 "--dir=$stow_source" --target="$dst" --stow .ssh
 
 # to ~/bin
+mkdir -p $this/bin/
 src="$stow_source/bin/"
 dst="$stow_destination/bin"
 ln -s "$src" "$dst" 
@@ -36,6 +37,9 @@ stow --verbose=3 "--dir=$src" --target="$stow_source/bin" --stow gist.sh
 git submodule init
 git submodule update
 
+src="$stow_source/rbenv"
+dst="$stow_destination/.rbenv"
+ln -s "$src" "$dst" 
 
 $this/package_install.sh
 

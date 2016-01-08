@@ -61,10 +61,24 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "sales@andersonpens.com",
                                  "hello@getpocket.com",
                                  "starbucks@e.starbucks.com",
-                                 "rei_storeevents@notices.rei.com"
+                                 "rei_storeevents@notices.rei.com",
+                                 "staples@easy.staples.com",
+                                 "newsletters@zenvilla.com",
+                                 "mail@humansolution.com",
+                                 "info@okeeffescompany.com",
+                                 "school@unexpectedproductions.org",
+                                 "sales@penchalet.com"
+                                 
                                  ] {
   fileinto "INBOX.tr.ads";
-}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] ["dell@dougbeal.com", "geico.com@dougbeal.com", "pensketruckrental.com@dougbeal.com", "southtacmoahonda@dougbeal.com", "ikea.costa.mesa@dougbeal.com"] {
+}elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
+"dell@dougbeal.com",
+"geico.com@dougbeal.com",
+"pensketruckrental.com@dougbeal.com",
+"southtacmoahonda@dougbeal.com",
+"ikea.costa.mesa@dougbeal.com",
+"mtjc.fm@dougbeal.com"
+                                                                                           ] {
   fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
@@ -108,7 +122,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.tr.edu.washington";
 } elsif allof( header :contains ["from"] "cust.service03@amazon.com", header :contains "subject" "Your Amazon Kindle document is here") {
   fileinto "INBOX.tr.amazon.kindle-documents";
-} 
+} elsif header :contains "list-id" "oversight.foolscap.org" {
+  fileinto "INBOX.foolscap.oversight";
+} elsif header :contains ["to"] ["foolscap.org", "foolscapcon.org", "littlecatz.org"] {
+  fileinto "INBOX.foolscap";
+}
+ 
+
  
 
 
