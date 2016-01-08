@@ -6,8 +6,8 @@ require 'pry'
 
 
 Encoding.default_external = Encoding::UTF_8
-#PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
-PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2014'
+PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
+#PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2014'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01/29'
@@ -59,7 +59,7 @@ def exif_scan_photo_directories(target)
     glob = "./**/*"
     files = Dir.glob(File.join(target, glob)).select { |f| File.file?(f) }
     return {}, {} unless files and files.length > 0
-    max_length = files.max_by(&:length).length
+    max_length = files.max_by(&:length).length * 2 # spaces will be escaped
     file_chunk_count = (ARG_MAX / max_length).floor
     incomming_hash = {}
     destination_hash = {}
