@@ -7,7 +7,8 @@ require 'pry'
 
 Encoding.default_external = Encoding::UTF_8
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
-PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015'
+PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2014'
+#PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01/29'
 
@@ -20,8 +21,9 @@ Thread::abort_on_exception = true
 
 ACTIVE = ["-", "\\", "|", "/"]
 
+THREAD_INITIAL_STATUS = "waiting"
 
-
+PHOTO_THREAD_NAMES = ['md5', 'exif']
 
 def generate_unique_name(hash, path)
   filename = hash[:filename]
@@ -61,7 +63,7 @@ def exif_scan_photo_directories(target)
     file_chunk_count = (ARG_MAX / max_length).floor
     incomming_hash = {}
     destination_hash = {}
-    names = ['md5', 'exif']
+    names = PHOTO_THREAD_NAMES
     queue_hash = {}
     queue_hash['md5'] = md5_queue = Queue.new
     queue_hash['exif'] = exif_queue = Queue.new
@@ -70,17 +72,24 @@ def exif_scan_photo_directories(target)
     complete_hash = {}
     names.each { |n| complete_hash[n] = false }
     status = {}
+    queuemax = {}    
     names.each do |n|
-      status[n] = "idle"
+      status[n] = THREAD_INITIAL_STATUS
     end
 
-    threads = []
+    threads = {}
 
-    threads << Thread.new do
-      name = 'exif'
+    def state
+      names = PHOTO_THREAD_NAMES
+      names.map { |name|  "#{name} alive #{threads[name].alive?} queue size #{queue_hash[name].size}, max #{queuemax[name]} complete #{complete_hash[name]} status '#{status[name]};"  }.join("\n")
+    end
+      
+    name = 'exif'
+    threads[name] = Thread.new(name) do |name|
       log("#{name} started.")      
       while exif_queue.size > 0 or not complete_hash[name] do
         file_chunk = exif_queue.pop
+        status[name] = "started" if status[name].eql? THREAD_INITIAL_STATUS
         begin
           exiftool = Exiftool.new(file_chunk, EXIFTOOL_OPTS)
           exiftool.files_with_results.each do |filename|
@@ -105,18 +114,23 @@ def exif_scan_photo_directories(target)
         end
         
       end
-      status[name] = "complete #{status[name]}"      
+      status[name] = "complete #{status[name]}"
+      if md5_queue.size == 0 and md5_queue.num_waiting == 1
+        # no work, terminate!
+        threads['md5'].terminate
+      end
       complete_hash['md5'] = true
       log "#{name} complete"
-      binding.pry
     end
 
-    threads << Thread.new do
-      name = 'md5'
+    name = 'md5'
+    threads[name] = Thread.new(name) do |name|
+
       queue = md5_queue
       log("#{name} started.")
       while queue.size > 0 or not complete_hash[name] do
         val = queue.pop
+        status[name] = "started" if status[name].eql? THREAD_INITIAL_STATUS        
         filename = val[:filename]
         key = Digest::MD5.hexdigest(IO.read(filename)).to_sym
         status[name] = "#{filename}: #{key}"
@@ -140,7 +154,7 @@ def exif_scan_photo_directories(target)
 
     complete_hash['exif'] = true
 
-    queuemax = {}
+
     queue_hash.each do |name, q|
       queuemax[name] = q.size
     end
@@ -150,14 +164,14 @@ def exif_scan_photo_directories(target)
     lines = 2*names.length    
     console.write "\n"*lines
     active_state = 0
-    while threads.reduce(false) { |m, t| m || t.alive? } do
-
+    while threads.reduce(false) { |m, (name, thread)| m || thread.alive? } do
       console.write "\r#{CSI}#{lines}A"
       rows,cols = console.winsize
       status_length = cols - 4
       #console.write "threads " + threads.reduce("") { |s, t| "#{s} #{t.alive?}" } + "\n"
       queuemax.each do |name, max|
         complete = complete_hash[name]
+        alive = threads[name].alive?
         size = queue_hash[name].size
         if size > max
           max = queuemax[name] = size
@@ -172,7 +186,7 @@ def exif_scan_photo_directories(target)
           end
           progress = (percentage * status_length).ceil
         end
-        line = "#{name}[#{size}:#{progress}/#{max}|#{complete}]$ #{status[name]}."
+        line = "#{name}[#{size}:#{progress}/#{max}|#{complete}|#{alive}]$ #{status[name]}."
         console.write line + " " * (cols-line.length) + "\n"
         if progress == status_length 
           console.write " |" + "X" * progress + "| " + "\n"
@@ -198,6 +212,8 @@ end
 # - work directly off sd card?
 
 # - need to scan all files in destination directory before moving anything
+
+# - TODO: clean up empty incomming directories
 
 Maid.rules do
   def osx_trash(filename)
