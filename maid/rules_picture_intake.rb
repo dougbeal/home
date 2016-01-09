@@ -229,7 +229,7 @@ Maid.rules do
   end
   
   def sync_and_organize_photos
-    log("incomming directory #{ PHOTO_INCOMING_DIRECTORY }, #{Dir.pwd}")
+    log("incomming directory #{ PHOTO_INCOMING_DIRECTORY }")
     incomming_hash, destination_hash = exif_scan_photo_directories(PHOTO_INCOMING_DIRECTORY)
     log("incomming scanned")
 
@@ -242,7 +242,6 @@ Maid.rules do
     incomming_hash.each do |incomming_md5, photo_array|
       photo_hash, *duplicates = photo_array
       if duplicates
-        puts "=== Identical Files ===\n"
         #trash incomming duplicates
         duplicates.each do |hash|
           move(hash[:filename], PHOTO_TRASH_DIRECTORY)
@@ -259,7 +258,7 @@ Maid.rules do
         else
           # move incomming to outgoing with new name
           new_name = generate_unique_name(photo_hash, destination_directory)
-          rename(filename, File.join(destination, new_name))
+          rename(filename, File.join(destination_directory, new_name))
         end
       else
         mkdir(destination_directory)
