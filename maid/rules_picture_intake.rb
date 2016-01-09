@@ -11,6 +11,7 @@ PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01/29'
+#PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Photo Import Test'
 
 PHOTO_OUTGOING_DIRECTORY = '/Volumes/Aperture 2014/live/Google Drive/Google Photos'
 PHOTO_TRASH_DIRECTORY = "/Volumes/Aperture 2014/.Trashes/#{Process.uid}"
@@ -239,28 +240,30 @@ Maid.rules do
       end
     end
     incomming_hash.each do |incomming_md5, photo_array|
-      if photo_array.length > 1
+      photo_hash, *duplicates = photo_array
+      if duplicates
         puts "=== Identical Files ===\n"
-        photo_array.each { |h| puts '  '+h[:filename] }
-      end
-      photo_array.each do |photo_hash|
-        filename = photo_hash[:filename]
-        destination_directory = File.join PHOTO_OUTGOING_DIRECTORY, path_from_photo_hash(photo_hash)
-        destination = File.join destination_directory, File.basename(photo_hash[:filename])
-        if File.exist?(destination)
-          #log(photo_hash.to_hash)
-          if destination_hash.key? incomming_md5
-            # already at destination, dispose of incomming file
-            move(filename, PHOTO_TRASH_DIRECTORY)
-          else
-            # move incomming to outgoing with new name
-            new_name = generate_unique_name(photo_hash, destination_directory)
-            rename(filename, File.join(destination, new_name))
-          end
-        else
-          mkdir(destination_directory)
-          move(filename, destination_directory)
+        #trash incomming duplicates
+        duplicates.each do |hash|
+          move(hash[:filename], PHOTO_TRASH_DIRECTORY)
         end
+      end
+      filename = photo_hash[:filename]
+      destination_directory = File.join PHOTO_OUTGOING_DIRECTORY, path_from_photo_hash(photo_hash)
+      destination = File.join destination_directory, File.basename(photo_hash[:filename])
+      if File.exist?(destination)
+        #log(photo_hash.to_hash)
+        if destination_hash.key? incomming_md5
+          # already at destination, dispose of incomming file
+          move(filename, PHOTO_TRASH_DIRECTORY)
+        else
+          # move incomming to outgoing with new name
+          new_name = generate_unique_name(photo_hash, destination_directory)
+          rename(filename, File.join(destination, new_name))
+        end
+      else
+        mkdir(destination_directory)
+        move(filename, destination_directory)
       end
     end
   end
