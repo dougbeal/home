@@ -125,7 +125,12 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 } elsif header :contains "list-id" "oversight.foolscap.org" {
   fileinto "INBOX.foolscap.oversight";
 } elsif header :contains ["to"] ["foolscap.org", "foolscapcon.org", "littlecatz.org"] {
-  fileinto "INBOX.foolscap";
+    if header :contains ["X-Delivered-to"] ["doug@dougbeal.com"] {
+            fileinto "INBOX";
+        }
+    else {    
+        fileinto "INBOX.foolscap";
+    }
 }
  
 
