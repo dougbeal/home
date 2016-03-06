@@ -1,3 +1,6 @@
+# You were using Advanced Rules (custom sieve script). We disabled all
+# the converted rules and appended your existing script below
+
 # elsif  header :contains [
 #"Sender", "X-Sender", "Mailing-List", "X-Apparently-From", "X-Version", "X-Sender-IP", "Received", "Return-Path", "Delivered-To", "List-Post", "Date", "Subject", "To", "Cc", "From", "Reply-to", "X-AntiAbuse", "Content-Type", "Received", "X-LinkName", "X-Resolved-to", "X-Delivered-to", "X-Mail-from", "X-Spam-hits"] "rawfish@cs.washington.edu"
 
@@ -68,7 +71,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "info@okeeffescompany.com",
                                  "school@unexpectedproductions.org",
                                  "sales@penchalet.com",
-                                 "newsletter@email.raise.com"
+                                 "newsletter@email.raise.com",
+                                 "swansonhealthproducts@e-mail.swanson-vitamins.com"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
@@ -210,3 +214,4 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   removeflag "\\Seen";
 # } 
 # ===END-GENERATED=== Text between markers will be automatically replaced
+
