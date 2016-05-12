@@ -75,7 +75,7 @@
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
    (quote
-    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh")))
+    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
@@ -94,6 +94,7 @@
                                (buffer-file-name))
              (setq emojify-inhibit-emojify-in-current-buffer-p t)))
      (encoding . utf-8))))
+ '(sgml-basic-offset 4)
  '(sh-shell-file "/bin/bash")
  '(shell-command-default-error-buffer nil t)
  '(shell-file-name "/bin/bash")
