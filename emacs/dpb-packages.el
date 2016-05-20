@@ -31,6 +31,7 @@
                           'smex
                           'unbound
                           'w3m
+                          'yasnippet
 )
   "Libraries that should be installed by default.")
 
@@ -39,6 +40,7 @@
                               'apples-mode
                               'coffee-mode
                               'company
+                              'company-go
                               'css-mode
                               'dash-functional
                               'dsvn
@@ -48,7 +50,9 @@
                               'flycheck-coffee
                               'flycheck-color-mode-line
                               'gist
+                              'go-complete
                               'go-mode
+                              'go-snippets
                               'highlight-parentheses
                               'inf-ruby
                               'jedi
@@ -73,6 +77,7 @@
                               'ruby-interpolation
                               'ruby-mode
                               'sass-mode
+                              'sourcekit
                               'swift-mode
                               'virtualenv
                               'visual-regexp

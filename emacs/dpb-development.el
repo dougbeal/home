@@ -193,7 +193,11 @@
 (add-to-list 'flycheck-checker 'swift)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(add-to-list 'dash-at-point-mode-alist '(swift-mode . "swift iOS"))
-(add-to-list 'dash-at-point-mode-alist '(ruby-mode . "ruby"))
+
+(require 'company-sourcekit)
+(add-to-list 'company-backends 'company-sourcekit)
+(add-hook 'after-init-hook 'global-company-mode)
+;(add-to-list 'dash-at-point-mode-alist '(swift-mode . "swift iOS"))
+;(add-to-list 'dash-at-point-mode-alist '(ruby-mode . "ruby"))
 (provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)

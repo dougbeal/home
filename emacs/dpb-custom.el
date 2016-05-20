@@ -101,6 +101,7 @@
  '(show-paren-mode t nil (paren))
  '(show-paren-style (quote parenthesis))
  '(smerge-command-prefix (kbd "M-RET"))
+ '(sourcekit-verbose t)
  '(standard-indent 4)
  '(tex-shell-file-name nil)
  '(tool-bar-mode nil nil (tool-bar))
