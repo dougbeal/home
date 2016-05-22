@@ -43,6 +43,7 @@
                               'company-go
                               'css-mode
                               'dash-functional
+                              'docker-tramp
                               'dsvn
                               'elnode
                               'erefactor
@@ -66,6 +67,7 @@
                               'nose
                               'nxml
                               'osx-plist
+                              'package-build
                               'paredit
                               'paredit-menu
                               'php-mode
@@ -93,7 +95,7 @@
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
 ;;                              'yasnippet-bundle
-
+(quelpa 'sourcekitten)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)
