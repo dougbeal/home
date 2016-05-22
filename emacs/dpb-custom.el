@@ -76,7 +76,7 @@
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
    (quote
-    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh")))
+    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
@@ -103,6 +103,7 @@
  '(show-paren-mode t nil (paren))
  '(show-paren-style (quote parenthesis))
  '(smerge-command-prefix (kbd "M-RET"))
+ '(sourcekit-verbose t)
  '(standard-indent 4)
  '(tex-shell-file-name nil)
  '(tool-bar-mode nil nil (tool-bar))
@@ -118,6 +119,7 @@
  '(w3m-default-save-directory "~/Downloads")
  '(w3m-new-session-url "about://bookmark/")
  '(w3m-pop-up-windows nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

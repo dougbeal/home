@@ -39,8 +39,10 @@
                               'apples-mode
                               'coffee-mode
                               'company
+                              'company-go
                               'css-mode
                               'dash-functional
+                              'docker-tramp
                               'dsvn
                               'elnode
                               'erefactor
@@ -48,7 +50,9 @@
                               'flycheck-coffee
                               'flycheck-color-mode-line
                               'gist
+                              'go-complete
                               'go-mode
+                              'go-snippets
                               'highlight-parentheses
                               'inf-ruby
                               'jedi
@@ -62,6 +66,7 @@
                               'nose
                               'nxml
                               'osx-plist
+                              'package-build
                               'paredit
                               'paredit-menu
                               'php-mode
@@ -73,6 +78,7 @@
                               'ruby-interpolation
                               'ruby-mode
                               'sass-mode
+                              'sourcekit
                               'swift-mode
                               'virtualenv
                               'visual-regexp
@@ -88,7 +94,9 @@
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
 ;;                              'yasnippet-bundle
-
+(require 'quelpa)
+(quelpa 'sourcekit)
+(quelpa 'company-sourcekit)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)
