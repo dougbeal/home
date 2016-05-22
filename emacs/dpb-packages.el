@@ -31,7 +31,6 @@
                           'smex
                           'unbound
                           'w3m
-                          'yasnippet
 )
   "Libraries that should be installed by default.")
 
