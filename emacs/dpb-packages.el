@@ -95,7 +95,9 @@
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
 ;;                              'yasnippet-bundle
-(quelpa 'sourcekitten)
+(require 'quelpa)
+(quelpa 'sourcekit)
+(quelpa 'company-sourcekit)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)

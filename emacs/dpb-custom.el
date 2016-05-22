@@ -116,7 +116,11 @@
  '(w3m-default-display-inline-images t)
  '(w3m-default-save-directory "~/Downloads")
  '(w3m-new-session-url "about://bookmark/")
- '(w3m-pop-up-windows nil))
+ '(w3m-pop-up-windows nil)
+ '(yas-global-mode t nil (yasnippet))
+ '(yas-snippet-dirs
+   (quote
+    ("/Users/dougbeal/git/home/emacs/snippets" "/Users/dougbeal/.emacs.d/snippets" yas-installed-snippets-dir "/Users/dougbeal/.emacs.d/elpa/go-snippets-20151121.2257/snippets")) nil (yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
