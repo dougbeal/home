@@ -26,7 +26,7 @@
                :password
                ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
                :full-name "Douglas Beal"
-               :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#goodstuff", "#swift-lang")
+               :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#goodstuff", "#swift-lang", "#emacs")
                :encryption tls))))
 
 
@@ -34,6 +34,28 @@
       `(("irc.freenode.net" nickserv "dougbeal" ,dpb/sensitive/irc/nick/freenode.net)))
 (require 'emojify)
 (global-emojify-mode)
+
+;; Toggle window dedication
+
+(defun toggle-window-dedicated ()
+
+"Toggle whether the current active window is dedicated or not" ;;http://stackoverflow.com/questions/43765/pin-emacs-buffers-to-windows-for-cscope
+
+(interactive)
+
+(message 
+
+ (if (let (window (get-buffer-window (current-buffer)))
+
+       (set-window-dedicated-p window 
+
+        (not (window-dedicated-p window))))
+
+    "Window '%s' is dedicated"
+
+    "Window '%s' is normal")
+
+ (current-buffer)))
 (provide 'dpb-config)
 
 ;;; dpb-config.el ends here
