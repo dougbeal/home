@@ -5,7 +5,8 @@
 #"Sender", "X-Sender", "Mailing-List", "X-Apparently-From", "X-Version", "X-Sender-IP", "Received", "Return-Path", "Delivered-To", "List-Post", "Date", "Subject", "To", "Cc", "From", "Reply-to", "X-AntiAbuse", "Content-Type", "Received", "X-LinkName", "X-Resolved-to", "X-Delivered-to", "X-Mail-from", "X-Spam-hits"] "rawfish@cs.washington.edu"
 
 
-require ["envelope", "imapflags", "fileinto", "reject", "notify", "vacation", "regex", "relational", "comparator-i;ascii-numeric", "body", "copy"];
+# fixed in sytle fastmail sieve
+#require ["envelope", "imapflags", "fileinto", "reject", "notify", "vacation", "regex", "relational", "comparator-i;ascii-numeric", "body", "copy"];
 
 #             header :matches["X-Backscatter"] "NotFound*"
  if anyof( allof( header :contains ["X-Backscatter"] "yes",
@@ -72,16 +73,23 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "school@unexpectedproductions.org",
                                  "sales@penchalet.com",
                                  "newsletter@email.raise.com",
-                                 "swansonhealthproducts@e-mail.swanson-vitamins.com"
+                                 "swansonhealthproducts@e-mail.swanson-vitamins.com",
+                                 "costco@online.costco.com",
+                                 "news@macrofab.com",
+                                 "sierratradingpost@sierratradingpost.com",
+                                 "newsletter@gouletpens.com",
+                                 "cs@injinji.com",
+                                 "specials@penchalet.com"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
-"dell@dougbeal.com",
-"geico.com@dougbeal.com",
-"pensketruckrental.com@dougbeal.com",
-"southtacmoahonda@dougbeal.com",
-"ikea.costa.mesa@dougbeal.com",
-"mtjc.fm@dougbeal.com"
+                                                                                           "dell@dougbeal.com",
+                                                                                           "geico.com@dougbeal.com",
+                                                                                           "pensketruckrental.com@dougbeal.com",
+                                                                                           "southtacmoahonda@dougbeal.com",
+                                                                                           "ikea.costa.mesa@dougbeal.com",
+                                                                                           "mtjc.fm@dougbeal.com",
+                                                                                           "steamcarnival.com@dougbeal.com"
                                                                                            ] {
   fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
