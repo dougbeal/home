@@ -79,7 +79,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "sierratradingpost@sierratradingpost.com",
                                  "newsletter@gouletpens.com",
                                  "cs@injinji.com",
-                                 "specials@penchalet.com"
+                                 "specials@penchalet.com",
+                                 "sierratradingpost@sierratradingpost.com"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
