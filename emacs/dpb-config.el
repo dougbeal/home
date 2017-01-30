@@ -6,23 +6,34 @@
 ;;; Commentary:
 ;; 
 
+;; TODO: no windows naming support
+;; (system-name)
+;; (message "%s" system-type)
+;;                                         ; darwin
+;;                                         ; windows-nt
+;; (pcase system-type
+;;   ('darwin (message "mac"))
+;;   ('windows-nt (message "win"))
+;;   (_ (message "unk")))
+
 ;;; Code:
-(let* ((name (system-name)) ;(name "doubeal-mb") moc-mb1
+(let* ((irc-base-name "dougbeal")
+       (name (system-name)) ;(name "doubeal-mb") moc-mb1
        (match-index (string-match ".*-\\(.[^-.]+\\)" name))
-       (match (match-string 1 name))
-       (system-name-abv
-        (cond
-         ((equal name "macnboss")
-          "")
-         (match
-          (concat "|"  ))
-         (t
-          "|fail"))))
-  (message "irc abv %s %s %s" name match-index match system-name-abv)
-  (setq rcirc-server-alist
+       (system-name-extracted-abbreviation (match-string 1 name))
+       )
+  (defvar dpb/config/system-name-extracted-abbreviation system-name-extracted-abbreviation)
+  (defvar dpb/config/irc-nick (concat irc-base-name "|" system-name-extracted-abbreviation))
+  (message "irc config irc-nick %s system-name-extracted-abbreviation %s %s %s %s"
+           dpb/config/irc-nick
+           dpb/config/system-name-extracted-abbreviation
+           irc-base-name
+           name
+           match-index)
+  (setq rcirc-servber-alist
         `(("irc.freenode.net"
            :nick
-           ,(concat "dougbeal" system-name-abv)
+           ,dpb/config/irc-name
            :port 6697
            :user-name "dougbeal"
            :password
