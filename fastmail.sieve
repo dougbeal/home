@@ -82,7 +82,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "specials@penchalet.com",
                                  "sierratradingpost@sierratradingpost.com",
                                  "targetnews@e.target.com",
-                                 "fandangonow@movies.fandangonow.com"
+                                 "fandangonow@movies.fandangonow.com",
+                                 "cartwheel@e.target.com"
                                  
                                  ] { 
   fileinto "INBOX.tr.ads";
