@@ -1,5 +1,4 @@
-(require 'nose2)
-(require 'python)
+
 (require 'dsvn)
 (require 'vc-svn)
 (require 'magit)
@@ -10,52 +9,16 @@
 (require 'github-issues)
 (require 'ws-butler)
 
-(setq ropemacs-enable-shortcuts nil)
-(setq ropemacs-local-prefix "C-c C-p")
 
-(defun ac-ropemacs-setup ()
-  (ac-ropemacs-require)
-  ;(setq ac-sources (append (list 'ac-source-ropemacs) ac-sources))
-  (setq ac-omni-completion-sources '(("\\." ac-source-ropemacs))))
 
-(defun load-ropemacs ()
-  "Load pymacs and ropemacs"
-  (interactive)
-  (require 'pymacs)
-  (autoload 'pymacs-apply "pymacs")
-  (autoload 'pymacs-call "pymacs")
-  (autoload 'pymacs-eval "pymacs" nil t)
-  (autoload 'pymacs-exec "pymacs" nil t)
-  (autoload 'pymacs-load "pymacs" nil t)
-  (ac-ropemacs-setup)
-  (ropemacs-mode t)
-  (pymacs-load "ropemacs" "rope-")
-  ;; Automatically save project python buffers before refactorings
-  (setq ropemacs-confirm-saving 'nil)
-  )
 
-(define-derived-mode cheetah-alf-mode tcl-mode "Cheetah"
-  (make-face 'cheetah-alf-variable-face)
-  (font-lock-add-keywords
-   nil
-   '(
-     ("\\(#\\(from\\|else\\|include\\|extends\\|set\\|def\\|import\\|for\\|if\\|end\\)+\\)\\>" 1 font-lock-type-face)
-     ("\\(#\\(from\\|for\\|end\\)\\).*\\<\\(for\\|import\\|def\\|if\\|in\\)\\>" 3 font-lock-type-face)
-     ("\\(##.*\\)\n" 1 font-lock-comment-face)
-     ("\\(\\$\\(?:\\sw\\|}\\|{\\|\\s_\\)+\\)" 1 font-lock-variable-name-face))
-   )
-  (font-lock-mode 1)
-  )
 
 (autoload 'apache-mode "apache-mode" nil t)
 (autoload 'applescript-mode "applescript-mode" "major mode for editing AppleScript source." t)
-;(autoload 'python-mode "my-python-mode" "" t )
+
 (autoload 'mel-mode "mel-mode" "Mel mode" t )
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 
-
-;(autoload 'python-mode "dpb-python-load-hook" "" t )
-;(add-hook 'python-mode-hook 'jedi:setup)
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.htaccess\\'"   . apache-mode))
@@ -74,7 +37,7 @@
 (append '("\\.mel\\'" . 'mel-mode) auto-mode-alist)
 (append '("\\.alf\\'" . 'tcl-mode) auto-mode-alist)
 (append '("\\.applescript$" . 'applescript-mode) auto-mode-alist)
-;; (pymacs-load "ropemacs" "rope-")
+
 
 ;(load-file "~/lib/emacs/django-html-mode.el")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; BEGIN CEDET
@@ -111,23 +74,6 @@
 ;; (global-srecode-minor-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; END CEDET
 
-(setq nose2-project-root-files '(".test_project_root"))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;  514  pip install rope ropemacs
-;;  515  pip install -e "git+https://github.com/pinard/Pymacs.git#egg=Pymacs"
-
-(eval-after-load "pymacs" '(progn
-                             (add-to-list 'pymacs-load-path (expand-file-name "~/lib/emacs/rope"))
-                             (add-to-list 'pymacs-load-path (expand-file-name "~/lib/emacs/ropemode"))
-                             (add-to-list 'pymacs-load-path (expand-file-name "~/lib/emacs/ropemacs"))
-                             )
-                 )
-
-(eval-after-load "python-mode"
-  '(progn
-     (load-ropemacs)))
-(add-to-list 'nose2-project-names "")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -198,6 +144,19 @@
 (add-to-list 'company-backends 'company-sourcekit)
 (add-hook 'after-init-hook 'global-company-mode)
 ;(add-to-list 'dash-at-point-mode-alist '(swift-mode . "swift iOS"))
-;(add-to-list 'dash-at-point-mode-alist '(ruby-mode . "ruby"))
+                                        ;(add-to-list 'dash-at-point-mode-alist '(ruby-mode . "ruby"))
+
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.liquid\\'" . web-mode))
+
 (provide 'dpb-development)
 ;;; dpb-development.el ends here (emacs-lisp-checkdoc)

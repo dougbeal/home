@@ -7,27 +7,29 @@
 ;; 
 
 ;;; Code:
-(let* ((name (system-name)) ;(name "doubeal-mb")
+(let* ((name (system-name)) ;(name "doubeal-mb") moc-mb1
+       (match-index (string-match ".*-\\(.[^-.]+\\)" name))
+       (match (match-string 1 name))
        (system-name-abv
-        (cond 
+        (cond
          ((equal name "macnboss")
           "")
-         ((string-match ".*-\\([^-.]+\\)\\(.[^-.]+\\)" name)
-          (concat "|" (match-string 1 name) ))
+         (match
+          (concat "|"  ))
          (t
-          "|er"))))  ;(message system-name-abv))
-        
-      (setq rcirc-server-alist
-            `(("irc.freenode.net"
-               :nick
-               ,(concat "dougbeal" system-name-abv)                        
-               :port 6697
-               :user-name "dougbeal"
-               :password
-               ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
-               :full-name "Douglas Beal"
-               :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#goodstuff", "#swift-lang", "#emacs")
-               :encryption tls))))
+          "|fail"))))
+  (message "irc abv %s %s %s" name match-index match system-name-abv)
+  (setq rcirc-server-alist
+        `(("irc.freenode.net"
+           :nick
+           ,(concat "dougbeal" system-name-abv)
+           :port 6697
+           :user-name "dougbeal"
+           :password
+           ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
+           :full-name "Douglas Beal"
+           :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" )
+           :encryption tls))))
 
 
 (setq rcirc-authinfo
