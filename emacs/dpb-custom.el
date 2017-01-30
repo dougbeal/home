@@ -85,7 +85,8 @@
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
    (quote
-    ((eval ignore-errors
+    ((c-indent-level . 2)
+     (eval ignore-errors
            (push
             (quote
              ("Tests" "(\\(\\<ert-deftest\\)\\>\\s *\\(\\(?:\\sw\\|\\s_\\)+\\)?" 2))
