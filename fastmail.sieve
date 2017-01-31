@@ -118,7 +118,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "sierratradingpost@sierratradingpost.com",
                                  "targetnews@e.target.com",
                                  "fandangonow@movies.fandangonow.com",
-                                 "cartwheel@e.target.com"
+                                 "cartwheel@e.target.com",
                                  "tor-forge@mail.macmillan.com",
                                  "tordotcom@mail.macmillan.com",
                                  "updates@amtrakguestrewards.com",
