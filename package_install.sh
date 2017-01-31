@@ -17,7 +17,7 @@ brew install gawk markdown git bash-completion cask ispell exiftool
         echo "ruby packages installed."
     )&
     ## os x development    
-    brew install go carthage
+    brew install go carthage fswatch
     brew cask install github-desktop
 )&
 

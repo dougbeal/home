@@ -76,7 +76,7 @@
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
    (quote
-    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401" "jsiracusa" "PenAddict")))
+    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401" "MrsSoup" "Pastaboy" "joesteel" "jsiracusa" "PenAddict")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
@@ -85,7 +85,8 @@
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
    (quote
-    ((eval ignore-errors
+    ((c-indent-level . 2)
+     (eval ignore-errors
            (push
             (quote
              ("Tests" "(\\(\\<ert-deftest\\)\\>\\s *\\(\\(?:\\sw\\|\\s_\\)+\\)?" 2))

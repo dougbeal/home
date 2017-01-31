@@ -6,13 +6,14 @@
              '("gnu" . "http://elpa.gnu.org/packages/") )
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") )
-;;(add-to-list 'package-archives 
+;;(add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
 
 (defvar packages-default (list
                           'auto-complete
+                          'browse-kill-ring
                           'dash
                           'edit-server
                           'edit-server-htmlize
@@ -30,10 +31,12 @@
                           'org
                           'smex
                           'unbound
+                          'undo-tree
                           'w3m
 )
   "Libraries that should be installed by default.")
-
+; gone?
+;                              'flycheck-coffee
 (defvar packages-development (list
                               'apache-mode
                               'apples-mode
@@ -46,8 +49,8 @@
                               'dsvn
                               'elnode
                               'erefactor
+                              'expand-region
                               'flycheck
-                              'flycheck-coffee
                               'flycheck-color-mode-line
                               'gist
                               'go-complete
@@ -93,15 +96,12 @@
                           ;; 'ido-better-flex
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
-;; ;;                              'yasnippet-bundle
-;; (if (require 'quelpa nil t)
-;;     (quelpa-self-upgrade)
-;;   (with-temp-buffer
-;;     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
-;;     (eval-buffer)))
-;; (require 'quelpa)
-;; (quelpa 'sourcekit)
-;; (quelpa 'company-sourcekit)
+;;                              'yasnippet-bundle
+(require 'quelpa)
+;(quelpa 'sourcekit)
+;(quelpa 'company-sourcekit)
+                                        ;(quelpa 'swift-mode)
+(quelpa '(swift-mode :fetcher file :path "~/git/swift-mode") :upgrade t)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)
@@ -133,6 +133,6 @@
 (defun dpb-missing-packages ()
   "List packages that are installed but missing from lists."
   (delete-dups
-   (set-difference  (set-difference package-activated-list packages-default) 
+   (set-difference  (set-difference package-activated-list packages-default)
                     packages-development)))
 (message "Installed packages not in packages list: %s" (dpb-missing-packages))

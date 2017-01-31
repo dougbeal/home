@@ -109,6 +109,16 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "starwood@starwood.delivery.net",
                                  "subscribe@sleepez.com",
                                  "swansonhealthproducts@e-mail.swanson-vitamins.com",
+                                 "costco@online.costco.com",
+                                 "news@macrofab.com",
+                                 "sierratradingpost@sierratradingpost.com",
+                                 "newsletter@gouletpens.com",
+                                 "cs@injinji.com",
+                                 "specials@penchalet.com",
+                                 "sierratradingpost@sierratradingpost.com",
+                                 "targetnews@e.target.com",
+                                 "fandangonow@movies.fandangonow.com",
+                                 "cartwheel@e.target.com"
                                  "tor-forge@mail.macmillan.com",
                                  "tordotcom@mail.macmillan.com",
                                  "updates@amtrakguestrewards.com",
@@ -128,12 +138,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
-"dell@dougbeal.com",
-"geico.com@dougbeal.com",
-"pensketruckrental.com@dougbeal.com",
-"southtacmoahonda@dougbeal.com",
-"ikea.costa.mesa@dougbeal.com",
-"mtjc.fm@dougbeal.com"
+                                                                                           "dell@dougbeal.com",
+                                                                                           "geico.com@dougbeal.com",
+                                                                                           "pensketruckrental.com@dougbeal.com",
+                                                                                           "southtacmoahonda@dougbeal.com",
+                                                                                           "ikea.costa.mesa@dougbeal.com",
+                                                                                           "mtjc.fm@dougbeal.com",
+                                                                                           "steamcarnival.com@dougbeal.com"
                                                                                            ] {
   fileinto "INBOX.tr.ads";
 }elsif header :contains "from" "notifications@github.com" {
