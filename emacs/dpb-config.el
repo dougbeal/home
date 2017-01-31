@@ -29,18 +29,19 @@
            dpb/config/system-name-extracted-abbreviation
            irc-base-name
            name
-           match-index)
-  (setq rcirc-servber-alist
-        `(("irc.freenode.net"
-           :nick
-           ,dpb/config/irc-name
-           :port 6697
-           :user-name "dougbeal"
-           :password
-           ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
-           :full-name "Douglas Beal"
-           :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" )
-           :encryption tls))))
+           match-index))
+
+(setq rcirc-server-alist
+      `(("irc.freenode.net"
+         :nick
+         ,dpb/config/irc-nick
+         :port 6697
+         :user-name "dougbeal"
+         :password
+         ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
+         :full-name "Douglas Beal"
+         :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" )
+         :encryption tls)))
 
 
 (setq rcirc-authinfo
