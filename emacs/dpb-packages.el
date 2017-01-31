@@ -1,4 +1,4 @@
-;; based on https://github.com/mknittig/emacs-config/blob/master/elpa.el
+  ;; based on https://github.com/mknittig/emacs-config/blob/master/elpa.el
 ;;(load "package.el")
 (require 'package)
 (package-initialize)
@@ -93,10 +93,15 @@
                           ;; 'ido-better-flex
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
-;;                              'yasnippet-bundle
-(require 'quelpa)
-(quelpa 'sourcekit)
-(quelpa 'company-sourcekit)
+;; ;;                              'yasnippet-bundle
+;; (if (require 'quelpa nil t)
+;;     (quelpa-self-upgrade)
+;;   (with-temp-buffer
+;;     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+;;     (eval-buffer)))
+;; (require 'quelpa)
+;; (quelpa 'sourcekit)
+;; (quelpa 'company-sourcekit)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)
