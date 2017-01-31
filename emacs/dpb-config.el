@@ -46,6 +46,29 @@
 
 (setq rcirc-authinfo
       `(("irc.freenode.net" nickserv "dougbeal" ,dpb/sensitive/irc/nick/freenode.net)))
+(setq rcirc-bright-nicks
+   (quote
+    (
+     "ATPTipster"
+     "Marco\\"
+     "MrsSoup"
+     "Pastaboy"
+     "PenAddict"
+     "SamTheGeek"
+     "afwaller"
+     "anexstacy"
+     "caseyliss"
+     "dowdyism"
+     "imyke"
+     "ismh"
+     "jasonsnell"
+     "joesteel"
+     "jsiracusa"
+     "slade401"
+     "thebaron66"
+     "ticci"
+     )))
+
 (require 'emojify)
 (global-emojify-mode)
 
