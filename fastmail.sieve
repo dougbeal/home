@@ -134,7 +134,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "support@setapp.com",
                                  "newsletter@asmallorange.com",
                                  "discover@new.itunes.com",
-                                 "hello@rye51.com"
+                                 "hello@rye51.com",
+                                 "DisneyDVD@disney.dvdmailcenter.com"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
