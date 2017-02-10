@@ -63,9 +63,11 @@
      "ismh"
      "jasonsnell"
      "joesteel"
+     "jamesthomson"
      "jsiracusa"
      "slade401"
      "thebaron66"
+     "msthebaron"
      "ticci"
      )))
 
