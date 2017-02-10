@@ -191,7 +191,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.tr.amazon.kindle-documents";
 } elsif header :contains "list-id" "oversight.foolscap.org" {
   fileinto "INBOX.foolscap.oversight";
-} elsif header :contains "list-id" "catchall.foolscap.org" {
+} elsif header :contains "list-id" "*.foolscap.org" {
   fileinto "INBOX.foolscap.catchall";
 } elsif header :contains ["to"] ["foolscap.org", "foolscapcon.org", "littlecatz.org"] {
     if header :contains ["X-Delivered-to"] ["@dougbeal.com"] {
