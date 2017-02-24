@@ -135,7 +135,8 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                  "newsletter@asmallorange.com",
                                  "discover@new.itunes.com",
                                  "hello@rye51.com",
-                                 "DisneyDVD@disney.dvdmailcenter.com"
+                                 "DisneyDVD@disney.dvdmailcenter.com",
+                                 "redmail@redfin.com"
                                  ] {
   fileinto "INBOX.tr.ads";
 }elsif  header :contains [ "Delivered-To", "To", "Cc", "X-Resolved-to", "X-Delivered-to"] [
@@ -148,7 +149,10 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                                                                            "steamcarnival.com@dougbeal.com"
                                                                                            ] {
   fileinto "INBOX.tr.ads";
-}elsif header :contains "from" "notifications@github.com" {
+} elsif header :contains "to" "+instapaper.tickytacky@dougbeal.com" {
+  fileinto "INBOX.monitor";
+  redirect "readlater.gscfox1g4is@instapaper.com";
+} elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
 } elsif  header :contains "subject" "Mac-users" {
   fileinto "INBOX.tr.mac";
