@@ -203,13 +203,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
     if header :contains ["X-Delivered-to"] ["@dougbeal.com"] {
             fileinto "INBOX";
         }
-    else {    
+    else {
         fileinto "INBOX.foolscap";
     }
 }
- 
 
- 
+
+
 
 
 
@@ -223,10 +223,10 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 # comments and code, don't do it in here!
 #
 # require ["envelope", "imapflags", "fileinto", "reject", "notify", "vacation", "regex", "relational", "comparator-i;ascii-numeric", "body", "copy"];
-# 
+#
 # if allof(
 #   header :contains ["X-Backscatter"] "yes",
-#   not header :matches ["X-LinkName"] "*" 
+#   not header :matches ["X-LinkName"] "*"
 # ) {
 #   fileinto "INBOX.spam.backscatter";
 #   stop;
@@ -283,6 +283,5 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   fileinto "INBOX.Chats";
 #   removeflag "$ChatLog";
 #   removeflag "\\Seen";
-# } 
+# }
 # ===END-GENERATED=== Text between markers will be automatically replaced
-
