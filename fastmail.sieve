@@ -151,6 +151,7 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.tr.ads";
 } elsif header :contains "to" "+instapaper.tickytacky@dougbeal.com" {
   fileinto "INBOX.monitor";
+  notify :method "app" :options ["From","Full"] :message "$from$ / $subject$ /";
   redirect "readlater.gscfox1g4is@instapaper.com";
 } elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
