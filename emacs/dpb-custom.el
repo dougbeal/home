@@ -72,15 +72,17 @@
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
  '(py-python-command "python2.6")
+ '(python-indent-offset 2)
  '(python-python-command "python2.6")
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
    (quote
-    ("imyke" "dowdyism" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401" "MrsSoup" "Pastaboy" "joesteel" "jsiracusa" "PenAddict")))
+    ("imyke" "dowdyism" "dmoren" "caseyliss" "jasonsnell" "ticci" "ismh" "Marco\\" "SamTheGeek" "ATPTipster" "thebaron66" "afwaller" "anexstacy" "slade401" "MrsSoup" "Pastaboy" "joesteel" "jsiracusa" "PenAddict")))
  '(rcirc-default-full-name "Douglas Beal")
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
+ '(rcirc-omit-threshold 0)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
