@@ -11,3 +11,6 @@ if [ "$EMACS" = "t" ]; then
         fi
     done
 fi
+
+# added by travis gem
+[ -f /Users/dougbeal/.travis/travis.sh ] && source /Users/dougbeal/.travis/travis.sh
