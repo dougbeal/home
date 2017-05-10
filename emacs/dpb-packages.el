@@ -97,11 +97,11 @@
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
 ;;                              'yasnippet-bundle
-(require 'quelpa)
+;(require 'quelpa)
 ;(quelpa 'sourcekit)
 ;(quelpa 'company-sourcekit)
                                         ;(quelpa 'swift-mode)
-(quelpa '(swift-mode :fetcher file :path "~/git/swift-mode") :upgrade t)
+;(quelpa '(swift-mode :fetcher file :path "~/git/swift-mode") :upgrade t)
 (defun elpa-install (list)
   "Install all packages that aren't installed."
   (interactive)
