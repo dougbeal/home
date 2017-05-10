@@ -3,11 +3,11 @@
 	email = git@dougbeal.com
 [core]
         autocrlf = input
-	editor = emacs
+	editor = emacsclient
 	excludesfile = /Users/dougbeal/.gitignore_global
 
 [credential]
-        helper = osxkeychain
+	helper = osxkeychain
 
 [merge]
 	tool = meld
