@@ -1,10 +1,10 @@
 ;;; dpb-config.el --- one line config items that haven't graduated to their own file
-;;; 
-;;; 
+;;;
+;;;
 
 
 ;;; Commentary:
-;; 
+;;
 
 ;; TODO: no windows naming support
 ;; (system-name)
@@ -40,7 +40,7 @@
          :password
          ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
          :full-name "Douglas Beal"
-         :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#indieweb" "#indieweb-dev" "#indieweb-meta" "#indieweb-chat" )
+         :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#indieweb" "#indieweb-dev"  "#indieweb-wordpress" "#indieweb-meta" "#indieweb-chat" )
          :encryption tls)))
 
 
@@ -82,11 +82,11 @@
 
 (interactive)
 
-(message 
+(message
 
  (if (let (window (get-buffer-window (current-buffer)))
 
-       (set-window-dedicated-p window 
+       (set-window-dedicated-p window
 
         (not (window-dedicated-p window))))
 
