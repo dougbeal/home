@@ -1,0 +1,21 @@
+---
+- name: Install MEmu
+  hosts: windows
+ 
+  tasks:
+    - name: Download the MEmu installer
+      tags:
+        - download
+      win_get_url:
+        url: 'http://www.memuplay.com/download.php?file_name=Memu-Setup'
+        dest: 'D:\ansible\downloads\Memu-Setup-{{ memu_version }}.exe'
+        force: no
+        
+
+    - name: Install MEmu
+      tags:
+        - install      
+      win_package: 
+        path: 'D:\ansible\downloads\Memu-Setup-{{ memu_version }}.exe'
+        state: present
+        

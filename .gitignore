@@ -3,3 +3,4 @@
 \#*#
 *.elc
 /emacs/dpb-sensitive.el
+provision/downloads/*

@@ -1,0 +1,22 @@
+---
+- name: Install Local
+  hosts: controller
+  connection: local
+
+  tasks:
+    - name: "Install https://github.com/matlink/gplaycli [pip]"
+      tags:
+        - install
+      pip:
+        name: gplaycli
+        
+    - name: "Install gplaycli credentials"
+      get_url:
+        url: https://raw.githubusercontent.com/matlink/gplaycli/master/credentials.conf
+        dest: downloads/credentials.conf
+        
+    - name: "Download FFBE apk"
+      tags:
+        - install
+      command: "gplaycli --config downloads/credentials.conf --download com.square_enix.android_googleplay.FFBEWW --folder downloads -v --log"
+

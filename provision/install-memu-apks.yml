@@ -1,0 +1,16 @@
+--- 
+- name: Install APKs
+  hosts: windows
+ 
+  tasks:
+    - name: Install Python 2
+      tags:
+        - install
+      win_command: "bash -xvc 'apt-get python2'"
+      register: install
+    
+
+
+
+        
+        

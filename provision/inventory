@@ -1,0 +1,12 @@
+[windows]
+10.0.1.200
+
+[windows:vars]
+memu_version="3.0.8.0"
+ffbe_version="2.1.2"
+
+[macos]
+localhost
+
+[controller]
+localhost
