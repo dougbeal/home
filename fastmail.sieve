@@ -306,9 +306,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
                                                                                            "steamcarnival.com@dougbeal.com"
                                                                                            ] {
   fileinto "INBOX.tr.ads";
-} elsif header :contains "to" "+ad@dougbeal.com" {
-  fileinto "INBOX.tr.ads";
-} elsif header :contains "to" "+instapaper.tickytacky@dougbeal.com" {
+} elsif header :contains "to" ["+ad@dougbeal.com", "58472_ad"] {
+    # redirect some messages
+    if header :contains "to" ["58472_vi"] {
+            redirect "vi_redirect@dougbeal.com";
+        }
+    fileinto "INBOX.tr.ads";
+} elsif header :contains "to" ["+instapaper.tickytacky@dougbeal.com", "58472_in"] {
   fileinto "INBOX.monitor";
   redirect "readlater.gscfox1g4is@instapaper.com";
 } elsif header :contains "from" "notifications@github.com" {
