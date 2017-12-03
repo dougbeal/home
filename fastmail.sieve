@@ -1,3 +1,160 @@
+require ["fileinto", "reject", "vacation", "imapflags", "notify", "envelope", "body", "relational", "regex", "subaddress", "copy", "mailbox", "mboxmetadata", "servermetadata", "date", "index", "comparator-i;ascii-numeric", "variables"];
+
+### 1. Sieve generated for save-on-SMTP identities
+# You do not have any identities with special filing.
+
+### 2. Sieve generated for discard rules
+# You do not have any discard rules.
+
+### 3. Sieve generated for spam protection
+if not header :matches "X-Spam-Known-Sender" "yes*" {
+  if 
+    allof(
+    header :contains "X-Backscatter" "yes",
+    not header :matches "X-LinkName" "*"
+    )
+  {
+    fileinto "INBOX.spam";
+    stop;
+  }
+}
+
+
+
+### 4. Sieve generated for forwarding rules
+# You do not have any forwarding rules.
+
+### 5. Sieve generated for vacation responses
+# You do not have vacation responses enabled.
+
+
+
+### 6. Sieve generated for calendar preferences
+if 
+  allof(
+  header :is "X-ME-Cal-Method" "request",
+  not exists "X-ME-Cal-Exists",
+  header :contains "X-Spam-Known-Sender" "in-addressbook"
+  )
+{
+  notify :method "addcal";
+}
+elsif exists "X-ME-Cal-Exists" {
+  notify :method "updatecal";
+}
+
+### 7. Sieve generated for organise rules
+# if header :contains "Subject" "Mac-users" {
+#   fileinto "INBOX.tr.mac";
+# }
+# if header :contains "Subject" "Cs-macusers" {
+#   fileinto "INBOX.tr.mac";
+# }
+# if header :contains "Subject" "cs-grads" {
+#   fileinto "INBOX";
+# }
+# if header :contains ["To","Cc","From","Subject","Date","Content-Type","Delivered-To","In-Reply-To","List-Post","List-Id","Mailing-List","Message-Id","Received","References","Reply-To","Return-Path","Sender","X-AntiAbuse","X-Apparently-From","X-Attached","X-Delivered-To","X-LinkName","X-Mail-From","X-Resolved-To","X-Sender","X-Sender-IP","X-Spam-Charsets","X-Spam-Hits","X-Spam-Known-Sender","X-Spam-Source","X-Version"] "rawfish@cs.washington.edu" {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "uw-systems@cs.washington.edu",
+#   header :contains "Cc" "uw-systems@cs.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "cs-ugrads",
+#   header :contains "Cc" "cs-ugrads"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "ieee@dougbeal.com",
+#   header :contains "Cc" "ieee@dougbeal.com"
+#   )
+# {
+#   fileinto "INBOX.tr.subscriptions.ieee";
+# }
+# if header :contains "Subject" "[Cse" {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "dougbeal+dball@fastmail.fm",
+#   header :contains "Cc" "dougbeal+dball@fastmail.fm"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if header :contains "From" "ameritrade" {
+#   fileinto "INBOX.tr.finances.Datek";
+# }
+# if header :contains "Subject" "[Plex86-" {
+#   fileinto "INBOX.tr.software.plex86";
+# }
+# if header :contains "Subject" "[Cs-ugrads-openforum]" {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "cs-ugrads-openforum@cs.washington.edu",
+#   header :contains "Cc" "cs-ugrads-openforum@cs.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if header :contains ["Newsgroups"] "uw-cs.ugrads.openforum" {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "cs-ugrads-general@cs.washington.edu",
+#   header :contains "Cc" "cs-ugrads-general@cs.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "tomorrows-professor@lists.Stanford.EDU",
+#   header :contains "Cc" "tomorrows-professor@lists.Stanford.EDU"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "engr_students@engr.washington.edu",
+#   header :contains "Cc" "engr_students@engr.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "movies@cs.washington.edu",
+#   header :contains "Cc" "movies@cs.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+# if 
+#   anyof(
+#   header :contains "To" "students@engr.washington.edu",
+#   header :contains "Cc" "students@engr.washington.edu"
+#   )
+# {
+#   fileinto "INBOX";
+# }
+
+### 8. Sieve generated for pop-link filing
+
+
 # You were using Advanced Rules (custom sieve script). We disabled all
 # the converted rules and appended your existing script below
 
@@ -153,7 +310,6 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
   fileinto "INBOX.tr.ads";
 } elsif header :contains "to" "+instapaper.tickytacky@dougbeal.com" {
   fileinto "INBOX.monitor";
-  notify :method "app" :options ["From","Full"] :message "$from$ / $subject$ /";
   redirect "readlater.gscfox1g4is@instapaper.com";
 } elsif header :contains "from" "notifications@github.com" {
   fileinto "INBOX.monitor.github";
@@ -205,13 +361,13 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
     if header :contains ["X-Delivered-to"] ["@dougbeal.com"] {
             fileinto "INBOX";
         }
-    else {
+    else {    
         fileinto "INBOX.foolscap";
     }
 }
+ 
 
-
-
+ 
 
 
 
@@ -225,10 +381,10 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 # comments and code, don't do it in here!
 #
 # require ["envelope", "imapflags", "fileinto", "reject", "notify", "vacation", "regex", "relational", "comparator-i;ascii-numeric", "body", "copy"];
-#
+# 
 # if allof(
 #   header :contains ["X-Backscatter"] "yes",
-#   not header :matches ["X-LinkName"] "*"
+#   not header :matches ["X-LinkName"] "*" 
 # ) {
 #   fileinto "INBOX.spam.backscatter";
 #   stop;
@@ -285,5 +441,5 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
 #   fileinto "INBOX.Chats";
 #   removeflag "$ChatLog";
 #   removeflag "\\Seen";
-# }
+# } 
 # ===END-GENERATED=== Text between markers will be automatically replaced
