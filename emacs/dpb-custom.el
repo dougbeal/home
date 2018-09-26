@@ -68,6 +68,9 @@
     ((sequence "TODO(t)" "NOW(n!)" "OPEN(o!)" "|" "DONE(d!)" "ABANDONED(a@)"))))
  '(org-track-ordered-property-with-tag t)
  '(osx-browse-prefer-background t)
+ '(package-selected-packages
+   (quote
+    (package-build frame-purpose nginx-mode flymake-easy flymake-json flymake-yaml web-mode hideshowvis powershell csv-mode docker docker-api dockerfile-mode pymacs yaml-mode xml-rpc ws-butler w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari quelpa pylint php-mode paredit-menu osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ handlebars-sgml-mode handlebars-mode grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp dash-at-point company-sourcekit company-go coffee-mode bug-hunter browse-kill-ring apples-mode apache-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
@@ -82,12 +85,15 @@
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
- '(rcirc-omit-threshold 0)
+ '(rcirc-log-process-buffers t)
+ '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE +v")))
+ '(rcirc-omit-threshold 1)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
    (quote
-    ((c-indent-level . 2)
+    ((esversion . 6)
+     (c-indent-level . 2)
      (eval ignore-errors
            (push
             (quote
@@ -110,10 +116,10 @@
  '(standard-indent 4)
  '(tex-shell-file-name nil)
  '(tool-bar-mode nil nil (tool-bar))
- '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave")
- '(tramp-default-method "ssh")
- '(tramp-default-user "dougbeal")
- '(tramp-verbose 10)
+ '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave" nil (tramp))
+ '(tramp-default-method "ssh" nil (tramp))
+ '(tramp-default-user "dougbeal" nil (tramp))
+ '(tramp-verbose 10 nil (tramp))
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(visual-basic-mode-indent 4)

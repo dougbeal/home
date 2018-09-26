@@ -21,8 +21,9 @@
 	smudge = git media smudge %f
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -32,3 +33,7 @@
 	trustExitCode = true
 [commit]
 #	template = /Users/dougbeal/.stCommitMsg
+[commit]
+	template = /Users/dougbeal/.stCommitMsg
+[hub]
+	protocol = https
