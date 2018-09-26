@@ -6,3 +6,6 @@ defaults write com.apple.Finder AppleShowAllFiles YES
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 defaults write com.apple.dashboard mcx-disabled -boolean YES
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly YES
+scutil --get HostName
+scutil --get LocalHostName
+scutil --get ComputerName

@@ -16,6 +16,23 @@
 ;;   ('windows-nt (message "win"))
 ;;   (_ (message "unk")))
 
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
+(defun --set-emoji-font (frame)
+  "Adjust the font settings of FRAME so Emacs can display emoji properly."
+  (if (eq system-type 'darwin)
+      ;; For NS/Cocoa
+      (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") frame 'prepend)
+    ;; For Linux
+    (set-fontset-font t 'symbol (font-spec :family "Symbola") frame 'prepend)))
+
+;; For when Emacs is started in GUI mode:
+(--set-emoji-font nil)
+;; Hook for when a frame is created with emacsclient
+;; see https://www.gnu.org/software/emacs/manual/html_node/elisp/Creating-Frames.html
+(add-hook 'after-make-frame-functions '--set-emoji-font)
+
 ;;; Code:
 (let* ((irc-base-name "dougbeal")
        (name (system-name)) ;(name "doubeal-mb") moc-mb1
@@ -40,7 +57,7 @@
          :password
          ,(concat "dougbeal: " dpb/sensitive/irc/nick/freenode.net)
          :full-name "Douglas Beal"
-         :channels ("#rcirc" "#atpfm" "#relayfm" "#5by5" "#theincomparable" "#indieweb" "#indieweb-dev"  "#indieweb-wordpress" "#indieweb-meta" "#indieweb-chat" )
+         :channels ("#rcirc" "#atpfm" "#relayfm" "#theincomparable" "#indieweb" "#indieweb-dev"  "#indieweb-wordpress" "#indieweb-meta" "#indieweb-chat" "#microformats" )
          :encryption tls)))
 
 

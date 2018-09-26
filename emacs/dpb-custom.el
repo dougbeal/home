@@ -16,6 +16,8 @@
  '(coffee-tab-width 2)
  '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
+ '(emojify-display-style (quote image))
+ '(emojify-emoji-styles (quote (github unicode)))
  '(exec-path
    (quote
     ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
@@ -70,12 +72,12 @@
  '(osx-browse-prefer-background t)
  '(package-selected-packages
    (quote
-    (package-build frame-purpose nginx-mode flymake-easy flymake-json flymake-yaml web-mode hideshowvis powershell csv-mode docker docker-api dockerfile-mode pymacs yaml-mode xml-rpc ws-butler w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari quelpa pylint php-mode paredit-menu osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ handlebars-sgml-mode handlebars-mode grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp dash-at-point company-sourcekit company-go coffee-mode bug-hunter browse-kill-ring apples-mode apache-mode)))
+    (ahk-mode angular-mode angular-snippets apache-mode apples-mode arduino-mode auto-overlays browse-kill-ring bug-hunter coffee-mode company-emoji company-go company-lua company-sourcekit counsel counsel-css counsel-dash counsel-osx-app counsel-tramp csv-mode dash-at-point docker docker-api docker-tramp dockerfile-mode dsvn edit-server-htmlize elnode emojify erefactor expand-region flx-ido flycheck-color-mode-line flycheck-status-emoji flycheck-yamllint flymake-easy flymake-json flymake-lua flymake-yaml frame-purpose gist github-issues go-complete go-snippets google-this graphql-mode grizzl handlebars-mode handlebars-sgml-mode help-fns+ hideshowvis highlight-parentheses idomenu jedi jekyll-modes js2-mode key-chord load-dir lua-mode magit markdown-mode+ nav nginx-mode nose osx-plist package-build paredit-menu php-mode powershell pylint pymacs quelpa request-deferred rinari rspec-mode ruby-interpolation sass-mode smex swift-mode unbound undo-tree unfill virtualenv visual-regexp-steroids w3m web-mode ws-butler xml-rpc yaml-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
  '(py-python-command "python2.6")
- '(python-indent-offset 2)
+ '(python-indent-offset 4)
  '(python-python-command "python2.6")
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
@@ -86,7 +88,7 @@
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
  '(rcirc-log-process-buffers t)
- '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE +v")))
+ '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE +v" "MODE" "KICK")))
  '(rcirc-omit-threshold 1)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)

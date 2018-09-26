@@ -1,6 +1,6 @@
 [user]
 	name = Douglas Beal
-	email = git@dougbeal.com
+	email = public.git@dougbeal.com
 [core]
         autocrlf = input
 	editor = emacsclient
@@ -21,10 +21,10 @@
 	smudge = git media smudge %f
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -32,8 +32,9 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-#	template = /Users/dougbeal/.stCommitMsg
-[commit]
 	template = /Users/dougbeal/.stCommitMsg
 [hub]
 	protocol = https
+[diff]
+	submodule = log
+
