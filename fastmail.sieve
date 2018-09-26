@@ -147,7 +147,9 @@ if  anyof( header :value "ge" :comparator "i;ascii-numeric" ["X-Spam-score"] ["5
     # redirect some messages
     if header :contains "to" ["58472_vi"] {
             redirect "vi_redirect@dougbeal.com";
-        }
+        } elsif header :contains "to" ["58472_jo"] {
+        redirect "jo_redirect@dougbeal.com";
+    }
     fileinto "INBOX.tr.ads";
 } elsif header :contains "to" ["+instapaper.tickytacky@dougbeal.com", "58472_in"] {
   fileinto "INBOX.monitor";
