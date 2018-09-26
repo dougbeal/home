@@ -16,6 +16,8 @@
  '(coffee-tab-width 2)
  '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
+ '(emojify-display-style (quote image))
+ '(emojify-emoji-styles (quote (github unicode)))
  '(exec-path
    (quote
     ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
@@ -68,11 +70,14 @@
     ((sequence "TODO(t)" "NOW(n!)" "OPEN(o!)" "|" "DONE(d!)" "ABANDONED(a@)"))))
  '(org-track-ordered-property-with-tag t)
  '(osx-browse-prefer-background t)
+ '(package-selected-packages
+   (quote
+    (graphql-mode unfill flycheck-status-emoji company-emoji github-issues counsel counsel-css counsel-dash counsel-osx-app counsel-tramp angular-mode angular-snippets arduino-mode company-lua flymake-lua lua-mode flymake-json nginx-mode docker docker-api dockerfile-mode flycheck-yamllint pymacs yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari request-deferred pylint php-mode paredit-menu package-build osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp company-sourcekit company-go coffee-mode browse-kill-ring auto-overlays apples-mode apache-mode ahk-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
  '(py-python-command "python2.6")
- '(python-indent-offset 2)
+ '(python-indent-offset 4)
  '(python-python-command "python2.6")
  '(rcirc-authinfo nil)
  '(rcirc-bright-nicks
@@ -82,12 +87,14 @@
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
+ '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE" "KICK")))
  '(rcirc-omit-threshold 0)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
    (quote
-    ((c-indent-level . 2)
+    ((esversion . 6)
+     (c-indent-level . 2)
      (eval ignore-errors
            (push
             (quote
@@ -110,10 +117,10 @@
  '(standard-indent 4)
  '(tex-shell-file-name nil)
  '(tool-bar-mode nil nil (tool-bar))
- '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave")
- '(tramp-default-method "ssh")
- '(tramp-default-user "dougbeal")
- '(tramp-verbose 10)
+ '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave" nil (tramp))
+ '(tramp-default-method "ssh" nil (tramp))
+ '(tramp-default-user "dougbeal" nil (tramp))
+ '(tramp-verbose 10 nil (tramp))
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(visual-basic-mode-indent 4)
