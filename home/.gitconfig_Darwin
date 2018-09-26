@@ -37,4 +37,3 @@
 	protocol = https
 [diff]
 	submodule = log
-
