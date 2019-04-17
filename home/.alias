@@ -1,2 +1,3 @@
 alias ec='emacsclient -n'
 alias dpbscreen='screen -d -RR -S dougbeal'
+alias ssh='/usr/bin/ssh'

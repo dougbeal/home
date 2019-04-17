@@ -1,5 +1,12 @@
   ;; based on https://github.com/mknittig/emacs-config/blob/master/elpa.el
 ;;(load "package.el")
+
+;; This is only needed once, near the top of the file
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
+  ;;(add-to-list 'load-path "<path where use-package is installed>")
+  (require 'use-package))
+
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
@@ -10,90 +17,127 @@
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
-(defvar packages-default (list
-                          'auto-complete
-                          'browse-kill-ring
-                          'dash
-                          'edit-server
-                          'edit-server-htmlize
-                          'emojify
-                          'epl
-                          'flx
-                          'flx-ido
-                          'google-this
-                          'grizzl
-                          'help-fns+
-                          'idomenu
-                          'key-chord
-                          'load-dir
-                          'magit
-                          'org
-                          'smex
-                          'unbound
-                          'undo-tree
-                          'w3m
-)
-  "Libraries that should be installed by default.")
-; gone?
-;                              'flycheck-coffee
-(defvar packages-development (list
-                              'apache-mode
-                              'apples-mode
-                              'coffee-mode
-                              'company
-                              'company-go
-                              'css-mode
-                              'dash-functional
-                              'docker-tramp
-                              'dsvn
-                              'elnode
-                              'erefactor
-                              'expand-region
-                              'flycheck
-                              'flycheck-color-mode-line
-                              'gist
-                              'go-complete
-                              'go-mode
-                              'go-snippets
-                              'highlight-parentheses
-                              'inf-ruby
-                              'jedi
-                              'jekyll-modes
-                              'js2-mode
-                              'json
-                              'jump
-                              'markdown-mode
-                              'markdown-mode+
-                              'nav
-                              'nose
-                              'nxml
-                              'osx-plist
-                              'package-build
-                              'paredit
-                              'paredit-menu
-                              'php-mode
-                              'pylint
-                              'pymacs
-                              'rinari
-                              'rspec-mode
-                              'ruby-compilation
-                              'ruby-interpolation
-                              'ruby-mode
-                              'sass-mode
-                              'sourcekit
-                              'swift-mode
-                              'virtualenv
-                              'visual-regexp
-                              'visual-regexp-steroids
-                              'ws-butler
-                              'xml-rpc
-                              'yaml-mode
-                              )
-  "Libraries for development that should be installed by default.")
+(use-package ahk-mode)
+(use-package angular-mode)
+(use-package angular-snippets)
+(use-package apache-mode)
+(use-package apples-mode)
+(use-package arduino-mode)
+(use-package auto-complete)
+(use-package auto-overlays)
+(use-package browse-kill-ring)
+(use-package bug-hunter)
+(use-package coffee-mode)
+(use-package company)
+(use-package company-emoji)
+(use-package company-go)
+(use-package company-lua)
+(use-package company-sourcekit)
+(use-package counsel)
+(use-package counsel-css)
+(use-package counsel-dash)
+(use-package counsel-osx-app)
+(use-package counsel-tramp)
+(use-package css-mode)
+(use-package csv-mode)
+(use-package dash)
+(use-package dash-at-point)
+(use-package dash-functional)
+(use-package docker)
+(use-package docker-api)
+(use-package docker-tramp)
+(use-package dockerfile-mode)
+(use-package dsvn)
+(use-package edit-server)
+(use-package edit-server-htmlize)
+(use-package elnode)
+(use-package emojify)
+(use-package epl)
+(use-package erefactor)
+(use-package expand-region)
+(use-package flx)
+(use-package flx-ido)
+(use-package flycheck)
+(use-package flycheck-color-mode-line)
+(use-package flycheck-status-emoji)
+(use-package flycheck-yamllint)
+(use-package flymake-easy)
+(use-package flymake-json)
+(use-package flymake-lua)
+(use-package flymake-yaml)
+(use-package frame-purpose)
+(use-package gist)
+(use-package github-issues)
+(use-package go-complete)
+(use-package go-dlv)
+(use-package go-mode)
+(use-package go-snippets)
+(use-package go-tag)
+(use-package google-this)
+(use-package graphql-mode)
+(use-package grizzl)
+(use-package handlebars-mode)
+(use-package handlebars-sgml-mode)
+(use-package help-fns+)
+(use-package hideshowvis)
+(use-package highlight-parentheses)
+(use-package idomenu)
+(use-package inf-ruby)
+(use-package jedi)
+(use-package js2-mode)
+(use-package json)
+(use-package jump)
+(use-package key-chord)
+(use-package ledger-import)
+(use-package ledger-mode)
+(use-package load-dir)
+(use-package lua-mode)
+(use-package magit)
+(use-package markdown-mode)
+(use-package markdown-mode+)
+(use-package nav)
+(use-package nginx-mode)
+(use-package nose)
+(use-package nxml)
+(use-package org)
+(use-package osx-plist)
+(use-package package-build)
+(use-package paredit)
+(use-package paredit-menu)
+(use-package php-mode)
+(use-package powershell)
+(use-package pylint)
+(use-package python-mode)
+(use-package quelpa)
+(use-package request-deferred)
+(use-package rinari)
+(use-package rspec-mode)
+(use-package ruby-compilation)
+(use-package ruby-interpolation)
+(use-package ruby-mode)
+(use-package sass-mode)
+(use-package smex)
+(use-package sourcekit)
+(use-package swift-mode)
+(use-package unbound)
+(use-package undo-tree)
+(use-package unfill)
+(use-package urlenc)
+(use-package virtualenv)
+(use-package visual-regexp)
+(use-package visual-regexp-steroids)
+(use-package w3m)
+(use-package web-mode)
+(use-package ws-butler)
+(use-package xml-rpc)
+(use-package yaml-mode)
+(use-package zones)
 
-
-                          ;; 'ido-better-flex
+;(use-package jekyll-modes)
+                         ;; 'ido-better-flex
                           ;; 'ido-ubiquitous
                           ;; 'ido-yes-or-no
 ;;                              'yasnippet-bundle
@@ -102,37 +146,37 @@
 ;(quelpa 'company-sourcekit)
                                         ;(quelpa 'swift-mode)
 ;(quelpa '(swift-mode :fetcher file :path "~/git/swift-mode") :upgrade t)
-(defun elpa-install (list)
-  "Install all packages that aren't installed."
-  (interactive)
-  (dolist (package list)
-    (unless (or (member package package-activated-list)
-                (package-built-in-p package)
-                (functionp package))
-      (message "Installing %s" (symbol-name package))
-      (condition-case err
-          (package-install package)
-        (error
-         (setq message-log-max t)
-         (message "error: %s" (error-message-string err)))))))
+;; (defun elpa-install (list)
+;;   "Install all packages that aren't installed."
+;;   (interactive)
+;;   (dolist (package list)
+;;     (unless (or (member package package-activated-list)
+;;                 (package-built-in-p package)
+;;                 (functionp package))
+;;       (message "Installing %s" (symbol-name package))
+;;       (condition-case err
+;;           (package-install package)
+;;         (error
+;;          (setq message-log-max t)
+;;          (message "error: %s" (error-message-string err)))))))
 
-(unwind-protect
-    (let ((debug-on-error nil))
-      (with-demoted-errors "ERROR during init %s" (package-refresh-contents))))
-(unwind-protect
-    (let ((debug-on-error nil))
-      (with-demoted-errors "ERROR during init %s" (elpa-install packages-default))))
+;; (unwind-protect
+;;     (let ((debug-on-error nil))
+;;       (with-demoted-errors "ERROR during init %s" (package-refresh-contents))))
+;; (unwind-protect
+;;     (let ((debug-on-error nil))
+;;       (with-demoted-errors "ERROR during init %s" (elpa-install packages-default))))
 
-(unwind-protect
-    (let ((debug-on-error nil))
-      (with-demoted-errors "ERROR during init %s" (elpa-install packages-development))))
+;; (unwind-protect
+;;     (let ((debug-on-error nil))
+;;       (with-demoted-errors "ERROR during init %s" (elpa-install packages-development))))
 
 
 
-(require 'cl-lib)
-(defun dpb-missing-packages ()
-  "List packages that are installed but missing from lists."
-  (delete-dups
-   (set-difference  (set-difference package-activated-list packages-default)
-                    packages-development)))
-(message "Installed packages not in packages list: %s" (dpb-missing-packages))
+;; (require 'cl-lib)
+;; (defun dpb-missing-packages ()
+;;   "List packages that are installed but missing from lists."
+;;   (delete-dups
+;;    (set-difference  (set-difference package-activated-list packages-default)
+;;                     packages-development)))
+;; (message "Installed packages not in packages list: %s" (dpb-missing-packages))
