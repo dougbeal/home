@@ -9,8 +9,22 @@ if [[ -e "$(command -v brew)" ]]; then
 fi
 
     
-export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/npm/bin:$PATH
+export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/share/npm/bin:~/go/bin:$PATH
 export MANPATH=/usr/local/share/man:$MANPATH
+
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+
+# If you need to have ruby first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+
+# For compilers to find ruby you may need to set:
+#   export LDFLAGS="-L/usr/local/opt/ruby/lib"
+#   export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# For pkg-config to find ruby you may need to set:
+#   export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 #todo: update pymacs path?
 #updateEnvironmentVariable PYTHONPATH "${HOME}/lib/emacs/pymacs"

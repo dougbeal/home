@@ -95,8 +95,9 @@
  '(rcirc-default-user-name "dougbeal")
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
- '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE" "KICK")))
- '(rcirc-omit-threshold 0)
+ '(rcirc-log-process-buffers t)
+ '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE +v" "MODE" "KICK")))
+ '(rcirc-omit-threshold 1)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values

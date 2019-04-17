@@ -1,3 +1,5 @@
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 [ -f ~/.alias ] && source ~/.alias
+
+[ -f ~/.profile ] && source ~/.profile
