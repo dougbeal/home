@@ -19,5 +19,10 @@ brew install gawk markdown git bash-completion cask ispell exiftool
     ## os x development    
     brew install go carthage fswatch
     brew cask install github-desktop
+    (
+        go get github.com/fatih/gomodifytags golang.org/x/tools/cmd/goimports
+    )&
 )&
+
+
 

@@ -21,7 +21,7 @@
  '(emojify-emoji-styles (quote (github unicode)))
  '(exec-path
    (quote
-    ("/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin")))
+    ("/usr/bin" "/Users/dougbeal/bin" "/Users/dougbeal/sbin" "/usr/local/bin" "/usr/local/sbin" "/usr/local/opt/ruby/bin" "/usr/local/share/python" "/usr/local/share/npm/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/X11R6/bin" "/opt/local/bin" "/Users/dougbeal/go/bin")))
  '(flycheck-completion-system (quote grizzl))
  '(frame-background-mode (quote dark))
  '(haml-indent-offset 4)
@@ -80,7 +80,7 @@
  '(osx-browse-prefer-background t)
  '(package-selected-packages
    (quote
-    (python-mode bison-mode csv-mode ledger-import ledger-mode bazel-mode go-dlv graphql-mode unfill flycheck-status-emoji company-emoji github-issues counsel counsel-css counsel-dash counsel-osx-app counsel-tramp angular-mode angular-snippets arduino-mode company-lua flymake-lua lua-mode flymake-json nginx-mode docker docker-api dockerfile-mode flycheck-yamllint pymacs yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari request-deferred pylint php-mode paredit-menu package-build osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp company-sourcekit company-go coffee-mode browse-kill-ring auto-overlays apples-mode apache-mode ahk-mode)))
+    (go-dlv unfill request-deferred python-mode zones yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv use-package urlenc undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari quelpa pylint powershell php-mode paredit-menu package-build osx-plist nose nginx-mode nav markdown-mode+ magit lv load-dir ledger-import key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses hideshowvis help-fns+ handlebars-sgml-mode handlebars-mode grizzl google-this go-tag go-snippets go-complete gist ghub frame-purpose flymake-yaml flymake-json flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn dockerfile-mode docker-api docker dash-at-point csv-mode company-sourcekit company-go coffee-mode bug-hunter browse-kill-ring apples-mode apache-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
@@ -96,7 +96,9 @@
  '(rcirc-fill-column nil)
  '(rcirc-log-flag t)
  '(rcirc-log-process-buffers t)
- '(rcirc-omit-responses (quote ("JOIN" "PART" "QUIT" "NICK" "MODE +v" "MODE" "KICK")))
+ '(rcirc-omit-responses
+   (quote
+    ("JOIN" "PART" "QUIT" "NICK" "MODE +v" "MODE" "KICK")))
  '(rcirc-omit-threshold 1)
  '(rcirc-scroll-show-maximum-output t)
  '(rcirc-track-minor-mode t)
@@ -151,9 +153,9 @@
  '(standard-indent 4)
  '(tex-shell-file-name nil)
  '(tool-bar-mode nil nil (tool-bar))
- '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave" nil (tramp))
- '(tramp-default-method "ssh" nil (tramp))
- '(tramp-default-user "dougbeal" nil (tramp))
+ '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave")
+ '(tramp-default-method "ssh")
+ '(tramp-default-user "dougbeal")
  '(tramp-verbose 10 nil (tramp))
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
