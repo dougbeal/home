@@ -14,6 +14,7 @@
  '(c-offsets-alist (quote ((substatement-open . 0))))
  '(coffee-args-compile (quote ("-c" "--bare")))
  '(coffee-tab-width 2)
+ '(completion-auto-help (quote lazy))
  '(desktop-path (quote ("~/.emacs.d/")))
  '(display-buffer-reuse-frames t)
  '(emojify-display-style (quote image))
@@ -29,6 +30,13 @@
  '(ido-ubiquitous-mode t)
  '(indent-tabs-mode nil)
  '(inverse-video t)
+ '(ledger-reports
+   (quote
+    (("accounts" "ledger ")
+     ("bal" "%(binary) -f %(ledger-file) bal")
+     ("reg" "%(binary) -f %(ledger-file) reg")
+     ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
+     ("account" "%(binary) -f %(ledger-file) reg %(account)"))))
  '(longlines-show-hard-newlines nil)
  '(longlines-wrap-follows-window-size t)
  '(mediawiki-site-default "Cine")
@@ -72,7 +80,7 @@
  '(osx-browse-prefer-background t)
  '(package-selected-packages
    (quote
-    (graphql-mode unfill flycheck-status-emoji company-emoji github-issues counsel counsel-css counsel-dash counsel-osx-app counsel-tramp angular-mode angular-snippets arduino-mode company-lua flymake-lua lua-mode flymake-json nginx-mode docker docker-api dockerfile-mode flycheck-yamllint pymacs yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari request-deferred pylint php-mode paredit-menu package-build osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp company-sourcekit company-go coffee-mode browse-kill-ring auto-overlays apples-mode apache-mode ahk-mode)))
+    (python-mode bison-mode csv-mode ledger-import ledger-mode bazel-mode go-dlv graphql-mode unfill flycheck-status-emoji company-emoji github-issues counsel counsel-css counsel-dash counsel-osx-app counsel-tramp angular-mode angular-snippets arduino-mode company-lua flymake-lua lua-mode flymake-json nginx-mode docker docker-api dockerfile-mode flycheck-yamllint pymacs yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari request-deferred pylint php-mode paredit-menu package-build osx-plist nose nav markdown-mode+ magit load-dir key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses help-fns+ grizzl google-this go-snippets go-complete gist flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn docker-tramp company-sourcekit company-go coffee-mode browse-kill-ring auto-overlays apples-mode apache-mode ahk-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
@@ -93,7 +101,32 @@
  '(rcirc-track-minor-mode t)
  '(safe-local-variable-values
    (quote
-    ((esversion . 6)
+    ((c-style-alist
+      ("ledger"
+       (indent-tabs-mode)
+       (c-basic-offset . 2)
+       (c-comment-only-line-offset 0 . 0)
+       (c-hanging-braces-alist
+        (substatement-open before after)
+        (arglist-cont-nonempty))
+       (c-offsets-alist
+        (statement-block-intro . +)
+        (knr-argdecl-intro . 5)
+        (substatement-open . 0)
+        (substatement-label . 0)
+        (label . 0)
+        (case-label . 0)
+        (statement-case-open . 0)
+        (statement-cont . +)
+        (arglist-intro . +)
+        (arglist-close . +)
+        (inline-open . 0)
+        (brace-list-open . 0)
+        (topmost-intro-cont first c-lineup-topmost-intro-cont c-lineup-gnu-DEFUN-intro-cont))
+       (c-special-indent-hook . c-gnu-impose-minimum)
+       (c-block-comment-prefix . "")))
+     (engine . go)
+     (esversion . 6)
      (c-indent-level . 2)
      (eval ignore-errors
            (push
