@@ -1,11 +1,7 @@
   ;; based on https://github.com/mknittig/emacs-config/blob/master/elpa.el
 ;;(load "package.el")
 
-;; This is only needed once, near the top of the file
-(eval-when-compile
-  ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  ;;(add-to-list 'load-path "<path where use-package is installed>")
-  (require 'use-package))
+
 
 (require 'package)
 (package-initialize)
@@ -15,7 +11,12 @@
              '("melpa" . "http://melpa.org/packages/") )
 ;;(add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
-
+(package-install 'use-package)
+;; This is only needed once, near the top of the file
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
+  ;;(add-to-list 'load-path "<path where use-package is installed>")
+  (require 'use-package))
 
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
