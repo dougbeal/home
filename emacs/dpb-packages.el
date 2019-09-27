@@ -6,8 +6,6 @@
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives
-             '("gnu" . "http://elpa.gnu.org/packages/") )
-(add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") )
 ;;(add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -83,7 +81,7 @@
 (use-package handlebars-mode)
 (use-package handlebars-sgml-mode)
 (use-package help-fns+)
-(use-package hideshowvis)
+;(use-package hideshowvis)
 (use-package highlight-parentheses)
 (use-package idomenu)
 (use-package inf-ruby)
