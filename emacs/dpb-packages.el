@@ -89,7 +89,6 @@
 (use-package js2-mode)
 (use-package json)
 (use-package jump)
-(use-package key-chord)
 (use-package ledger-import)
 (use-package ledger-mode)
 (use-package load-dir)
