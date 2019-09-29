@@ -80,7 +80,7 @@
  '(osx-browse-prefer-background t)
  '(package-selected-packages
    (quote
-    (go-dlv unfill request-deferred python-mode zones yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv use-package urlenc undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari quelpa pylint powershell php-mode paredit-menu package-build osx-plist nose nginx-mode nav markdown-mode+ magit lv load-dir ledger-import key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses hideshowvis help-fns+ handlebars-sgml-mode handlebars-mode grizzl google-this go-tag go-snippets go-complete gist ghub frame-purpose flymake-yaml flymake-json flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn dockerfile-mode docker-api docker dash-at-point csv-mode company-sourcekit company-go coffee-mode bug-hunter browse-kill-ring apples-mode apache-mode)))
+    (mediawiki go-dlv unfill request-deferred python-mode zones yaml-mode xml-rpc ws-butler web-mode w3m visual-regexp-steroids virtualenv use-package urlenc undo-tree unbound swift-mode smex sass-mode ruby-interpolation rspec-mode rinari quelpa pylint powershell php-mode paredit-menu package-build osx-plist nose nginx-mode nav markdown-mode+ magit lv load-dir ledger-import key-chord js2-mode jekyll-modes jedi idomenu highlight-parentheses hideshowvis help-fns+ handlebars-sgml-mode handlebars-mode grizzl google-this go-tag go-snippets go-complete gist ghub frame-purpose flymake-yaml flymake-json flycheck-color-mode-line flx-ido expand-region erefactor emojify elnode edit-server-htmlize dsvn dockerfile-mode docker-api docker dash-at-point csv-mode company-sourcekit company-go coffee-mode bug-hunter browse-kill-ring apples-mode apache-mode)))
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
@@ -156,7 +156,7 @@
  '(tramp-auto-save-directory "~/.emacs.d/.emacs-tramp-autosave")
  '(tramp-default-method "ssh")
  '(tramp-default-user "dougbeal")
- '(tramp-verbose 10 nil (tramp))
+ '(tramp-verbose 10)
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(visual-basic-mode-indent 4)

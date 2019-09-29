@@ -7,7 +7,9 @@
 ``` Bash
 GITHUB_USER=dougbeal && find . -depth 1 -type f -name '*.py' -exec sed -E -i '' s/ywangd/${GITHUB_USER}/g {} +
 ```
-# install in Pythonista
+
+# copy into Pythonista as a .py file
+* https://raw.githubusercontent.com/dougbeal/pythonista-stash-home/master/bootstrapstash.yp
 ``` Python
 GITHUB_USER="dougbeal"
 url = "https://raw.githubusercontent.com/%s/stash/local/getstash.py" % (GITHUB_USER)
@@ -16,16 +18,13 @@ import requests as r; exec(r.get(url).text)
 # restart Pythonista
 # create ssh key
 ``` Bash
-REMOTE_TARGET=10.0.1.242
-REMOTE_USERNAME=dougbeal
-MOBILE=iphone7
-SSH_FILENAME="stash-pythonista-${MOBILE}
-echo "Need remote password for ${REMOTE_USERNAME} on ${REMOTE_TARGET}"
-read REMOTE_PASSWORD
-mkdir -p "$STASH_ROOT/.ssh"
-cd "$STASH_ROOT/.ssh"
-ssh-keygen -t dsa -f ${SSH_FILENAME}
-scp --password ${REMOTE_PASSWORD} stash-pythonista* ${REMOTE_USERNAME}@${REMOTE_TARGET}:~/.ssh/
-
+git clone https://github.com/dougbeal/pythonista-stash-home.gitss
+```
+# past in sensitve env variables, or rename sensitve_template.sh to sensitive.sh
+``` Bash
+# you probably want to paste these in
+REMOTE_TARGET=10.0.0.200
+REMOTE_USERNAME=somesuer
+MOBILE=iphone6s
 ```
 # add .pub to ~/.ssh/authorized_keys

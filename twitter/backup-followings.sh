@@ -8,4 +8,5 @@ if [[ ! -e $fol ]]; then
 fi
 $t list create --private $list
 cat $fol | xargs $t list add $list
+$t friends > "friends.${now}.t"
 
