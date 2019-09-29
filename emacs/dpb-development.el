@@ -157,6 +157,8 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.liquid\\'" . web-mode))
 
+(require 'js-mode)
+(add-to-list 'auto-mode-alist '("\\.omnijs\\'". js-mode))
 
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
