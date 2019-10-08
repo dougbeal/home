@@ -160,6 +160,8 @@
 (require 'js-mode)
 (add-to-list 'auto-mode-alist '("\\.omnijs\\'". js-mode))
 
+(add-to-list 'auto-mode-alist '("go.mod\\'" . go-mode))
+
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
 
