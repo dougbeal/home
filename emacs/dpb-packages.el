@@ -127,7 +127,7 @@
 (use-package virtualenv)
 (use-package visual-regexp)
 (use-package visual-regexp-steroids)
-(use-package w3m)
+;(use-package w3m) ; requires w3m binary installation
 (use-package web-mode)
 (use-package ws-butler)
 (use-package xml-rpc)
