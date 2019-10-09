@@ -9,7 +9,7 @@ if [[ -e "$(command -v brew)" ]]; then
 fi
 
     
-export PATH=${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/share/npm/bin:~/go/bin:$PATH
+export PATH="${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/share/npm/bin:${HOME}/go/bin:$PATH"
 export MANPATH=/usr/local/share/man:$MANPATH
 
 export LDFLAGS="-L/usr/local/opt/ruby/lib"

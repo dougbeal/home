@@ -1,9 +1,9 @@
-source ~/common.sh
+source "${HOME}/common.sh"
 
 export SVN_EDITOR="emacsclient"
 export EDITOR="emacsclient"
-safeSource ~/.alias
-safeSource ~/.profile_$platform
+safeSource "${HOME}/.alias"
+safeSource "${HOME}/.profile_$platform"
 
 
 

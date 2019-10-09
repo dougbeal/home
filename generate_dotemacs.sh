@@ -1,11 +1,11 @@
 #!/bin/bash
 if [[ $OS =~ Window.*  ]]; then
-    win_path=$( cd $(dirname ${BASH_SOURCE[0]}); cygpath -ma . )
-    unix_path=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+    win_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); cygpath -ma . )"""
+    unix_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); pwd -P )"""
 else
-    unix_path=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+    unix_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); pwd -P )"""
 fi
-paths=( $unix_path $win_path )
+paths=( "$unix_path" "$win_path" )
 repo="git/home"
 init_file="emacs/init.el"
 home_dirname=
