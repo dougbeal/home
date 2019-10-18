@@ -1,6 +1,6 @@
 ############################################################
 # make sure emacs on cyginw gets profile settings, particually path
-profiles=( /etc/profile ~/.profile )
+profiles=( /etc/profile "${HOME}.profile" )
 if [ "$EMACS" = "t" ]; then
     for profile in ${profiles[@]}; do
         if [ -f  $profile ]; then
@@ -12,7 +12,7 @@ if [ "$EMACS" = "t" ]; then
     done
 fi
 
-[ -f ~/.alias ] && source ~/.alias
+[ -f "${HOME}/.alias" ] && source "${HOME}/.alias"
 
 # added by travis gem
 [ -f /Users/dougbeal/.travis/travis.sh ] && source /Users/dougbeal/.travis/travis.sh

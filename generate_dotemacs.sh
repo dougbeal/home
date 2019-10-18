@@ -1,21 +1,22 @@
 #!/bin/bash
 if [[ $OS =~ Window.*  ]]; then
-    win_path=$( cd $(dirname ${BASH_SOURCE[0]}); cygpath -ma . )
-    unix_path=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+    win_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); cygpath -ma . )"""
+    unix_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); pwd -P )"""
 else
-    unix_path=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+    unix_path="""$( cd $(dirname "${BASH_SOURCE[0]}"); pwd -P )"""
 fi
-paths=( $unix_path $win_path )
+paths=( "$unix_path" "$win_path" )
 repo="git/home"
 init_file="emacs/init.el"
-locations=( $(dirname "$HOME") "/Users" "/home" "C:/cyginw/home" "/" $paths )
+home_dirname=
+locations=( """$(dirname "$HOME")""" "/Volumes/Macintosh HD/Users/" "/Users" "/home" "C:/cyginw/home" "/" $paths )
 
 ############################################################
 # generate .emacs file, which load repo init.el  
 
 location_list=""
 # create lisp strings
-for location in ${locations[@]}; do
+for location in "${locations[@]}"; do
     location_list="$location_list \"${location}\""
 done
 echo """

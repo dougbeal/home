@@ -13,10 +13,8 @@
 ;;(define-key twittering-mode-map (kbd "C-c o") 'osx-browse-url)
 ;;(define-key twittering-mode-map (kbd "C-c e") 'browse-url-text-emacs)
 
-
-(require 'key-chord)
-(key-chord-mode 0)
-
+(if (require 'key-chord nil t)
+    (key-chord-mode 0))
                                         ;
 ;; generate template
 ; (progn (insert "\n") (mapcar (lambda (key) (insert (format "(\"%i\" . \"x\")\n" key))) (number-sequence 0 9)))

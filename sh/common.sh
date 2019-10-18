@@ -1,5 +1,6 @@
 #!/bin/bash
-this_common_sh=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+source_directory="""$(dirname "${BASH_SOURCE[0]}")""" 
+this_common_sh="""$( cd "${source_directory}" && pwd -P )"""
 
 function updateEnvironmentVariable() {
     local varname=$1
@@ -89,9 +90,9 @@ function appendEnvironmentVariable() {
 }
 
 function safeSource() {
-    local file=$1
-    if [ -n "$file" -a -e $file ]; then
-	source ${file}
+    local file="$1"
+    if [ -n "$file" -a -e "$file" ]; then
+	source "${file}"
     else
 	echo "Source failure, file '${file}' not found."
     fi
@@ -376,8 +377,8 @@ function relpath() {
     local save=$IFS
     IFS="/"
 
-    local current=( $( cd "$1"; pwd -P ) )
-    local absolute=( $( cd "$2"; pwd -P ) )
+    local current=( """$( cd "$1"; pwd -P )""" )
+    local absolute=( """$( cd "$2"; pwd -P )""" )
 
     verdebug RELPATH_DEBUG "${current[@]}" "${absolute[@]}"
 
@@ -450,19 +451,19 @@ function buildExportString()
 
 
 function canonical() {
-    local file=${1:-"."}
-    local dir=$(dirname $file)
-    echo $(cd $dir; pwd -P)
+    local file="""${1:-"."}"""
+    local dir="$(dirname $file)"
+    echo """$(cd "$dir"; pwd -P)"""
 }
 function setCommonFile() {
-    local thisFile=${BASH_SOURCE[0]}
+    local thisFile="${BASH_SOURCE[0]}"
     local len=${#FUNCNAME[@]}
     local fname=( ${FUNCNAME[@]} )
-    local bsource=( ${BASH_SOURCE[@]} )
+    local bsource="( ${BASH_SOURCE[@]} )"
     verboseVar len fname[@] bsource[@] 
     local idx=$((len-1))
-    local mainFile=${bsource[$idx]}
-    local name=${fname[$idx]}
+    local mainFile="${bsource[$idx]}"
+    local name="${fname[$idx]}"
     verboseVar idx mainFile name
     if [ "${name}" != "main" ]; then
 	# we are sourced, need to search
@@ -474,11 +475,11 @@ function setCommonFile() {
 	    fi
 	done
 	verboseVar source_loc
-	mainFile=${bsource[$source_loc]}
+	mainFile="${bsource[$source_loc]}"
     fi
     verboseVar end mainFile fname thisFile
-    DIR_MAIN=$(canonical $mainFile )
-    DIR_COMMON=$(canonical $thisFile )
+    DIR_MAIN="$(canonical $mainFile )"
+    DIR_COMMON="$(canonical $thisFile )"
     verboseVar DIR_COMMON DIR_MAIN
 }
 

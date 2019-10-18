@@ -1,15 +1,15 @@
 #!/bin/bash
-this=$( cd $(dirname ${BASH_SOURCE[0]}); pwd -P )
+this="""$( cd $(dirname "${BASH_SOURCE[0]}"); pwd -P )"""
 source "$this/sh/common.sh"
 
 ############################################################
 # generate .emacs file, which loads repo init.el  
 if [ ! -e ~/.emacs ]; then
-    $this/generate_dotemacs.sh > $HOME/.emacs
+    "$this/generate_dotemacs.sh" > "$HOME/.emacs"
 fi
 
 stow_source="$this"
-stow_destination=$( cd $HOME; pwd -P )
+stow_destination="""$( cd $HOME; pwd -P )"""
 
 # todo: move to platform specific, this is an osx-ism
 command -v stow || brew install stow
