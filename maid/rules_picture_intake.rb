@@ -6,15 +6,23 @@ require 'pry'
 
 
 Encoding.default_external = Encoding::UTF_8
-PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
+PHOTO_WATCH_DIRECTORY = '/Users/dougbeal/Pictures'
+PHOTO_INCOMING_DIRECTORY = [
+  '/Volumes/USD16GB',
+  #'/Users/dougbeal/Pictures/Photos Library.photoslibrary/Masters',  
+  '/Users/dougbeal/Pictures/USD16GB',
+  '/Users/dougbeal/Pictures/https:',
+  "/Users/dougbeal/Pictures/2017-07-31 Willie's Photos:"
+]
+#PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2014'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2015/01/29'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Photo Import Test'
 
-PHOTO_OUTGOING_DIRECTORY = '/Volumes/Aperture 2014/live/Google Drive/Google Photos'
-PHOTO_TRASH_DIRECTORY = "/Volumes/Aperture 2014/.Trashes/#{Process.uid}"
+PHOTO_OUTGOING_DIRECTORY = '/Volumes/2019 Google Drive/Google Drive/Google Photos'
+PHOTO_TRASH_DIRECTORY = "/Users/dougbeal/.Trash/photosync/#{Process.uid}"
 EXIFTOOL_OPTS = "-time:Creat* -time:File*" # only grab fields that will be used
 ARG_MAX = Integer(`getconf ARG_MAX`)
 CSI = "\e["
@@ -188,7 +196,7 @@ def exif_scan_photo_directories(target)
           progress = (percentage * status_length).ceil
         end
         line = "#{name}[#{size}:#{progress}/#{max}|#{complete}|#{alive}]$ #{status[name]}."
-        console.write line + " " * (cols-line.length) + "\n"
+        console.write line + " " * (cols-line.length > 0 ? cols-line.length : 0) + "\n"
         if progress == status_length 
           console.write " |" + "X" * progress + "| " + "\n"
         else
@@ -228,9 +236,10 @@ Maid.rules do
     end
   end
   
-  def sync_and_organize_photos
-    log("incomming directory #{ PHOTO_INCOMING_DIRECTORY }")
-    incomming_hash, destination_hash = exif_scan_photo_directories(PHOTO_INCOMING_DIRECTORY)
+  def sync_and_organize_photos(directory)
+    mkdir(PHOTO_TRASH_DIRECTORY)    
+    log("incomming directory #{ directory }")
+    incomming_hash, destination_hash = exif_scan_photo_directories(directory)
     log("incomming scanned")
 
     destination_hash.each do |md5, photo_array|
@@ -268,12 +277,16 @@ Maid.rules do
   end
 
   rule 'sync and organize photos' do
-    sync_and_organize_photos()
+    for d in PHOTO_INCOMING_DIRECTORY do 
+      sync_and_organize_photos(d)
+    end
   end  
 
-  watch PHOTO_INCOMING_DIRECTORY do
+  watch PHOTO_WATCH_DIRECTORY do
     rule 'on watch sync and organize photos' do
-      sync_and_organize_photos()
+      for d in PHOTO_INCOMING_DIRECTORY do 
+        sync_and_organize_photos(d)
+      end
     end
   end
 end
