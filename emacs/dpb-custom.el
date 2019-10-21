@@ -160,6 +160,8 @@
  '(transient-mark-mode nil)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(visual-basic-mode-indent 4)
+ '(vr/command-python
+   "python '/Volumes/Macintosh HD/Users/dougbeal/.emacs.d/elpa/visual-regexp-steroids-20170222.253/regexp.py'")
  '(w3m-confirm-leaving-secure-page nil)
  '(w3m-default-display-inline-images t)
  '(w3m-default-save-directory "~/Downloads")
