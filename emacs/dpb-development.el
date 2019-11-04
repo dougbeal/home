@@ -99,7 +99,8 @@
 
 
 
-
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
 
 (setq inferior-js-program-command "node --interactive") ;; run-js
 (setenv "NODE_NO_READLINE" "1")
