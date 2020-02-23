@@ -84,7 +84,7 @@
  '(password-cache-expiry 600)
  '(persp-mode t)
  '(py-honor-comment-indentation nil)
- '(py-python-command "python2.6")
+ '(py-python-command "python3")
  '(python-indent-offset 4)
  '(python-python-command "python2.6")
  '(rcirc-authinfo nil)

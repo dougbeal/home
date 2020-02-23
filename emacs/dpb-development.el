@@ -139,6 +139,10 @@
 (add-to-list 'flycheck-checker 'swift)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(custom-set-variables
+ '(flycheck-python-flake8-executable "python3")
+ '(flycheck-python-pycompile-executable "python3")
+ '(flycheck-python-pylint-executable "python3"))
 
 (require 'company-sourcekit)
 (add-to-list 'company-backends 'company-sourcekit)
