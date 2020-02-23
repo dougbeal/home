@@ -44,6 +44,7 @@
  '(ns-alternate-modifier (quote alt))
  '(ns-command-modifier (quote meta))
  '(org-agenda-files (quote ("~/Google Drive/orgmode/")))
+ '(org-babel-load-languages (quote ((emacs-lisp . t) (ledger . t))))
  '(org-default-notes-file "~/org/.notes")
  '(org-default-priority 71)
  '(org-directory "~/Google Drive/orgmode/")
