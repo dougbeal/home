@@ -4,15 +4,19 @@ require 'thread'
 require 'io/console'
 require 'pry'
 
+#  maid clean  -nr rules_picture_intake.rb
+#  maid clean  -fr rules_picture_intake.rb
+
 
 Encoding.default_external = Encoding::UTF_8
 PHOTO_WATCH_DIRECTORY = '/Users/dougbeal/Pictures'
 PHOTO_INCOMING_DIRECTORY = [
   '/Volumes/USD16GB',
-  #'/Users/dougbeal/Pictures/Photos Library.photoslibrary/Masters',  
+  '/Users/dougbeal/Pictures/Photos Library.photoslibrary/Masters',
   '/Users/dougbeal/Pictures/USD16GB',
   '/Users/dougbeal/Pictures/https:',
-  "/Users/dougbeal/Pictures/2017-07-31 Willie's Photos:"
+  "/Users/dougbeal/Pictures/2017-07-31 Willie's Photos:",
+  '/Volumes/Backup 2018/tmp-2020-02-20'
 ]
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos'
 #PHOTO_INCOMING_DIRECTORY = '/Volumes/Aperture 2014/live/Incomming Photos/2014'
@@ -57,7 +61,7 @@ def path_from_photo_hash( photo_hash )
 end
 
 def scan_photo_directory(target)
-  
+
 end
 
 def extract_exif_date(exif)
@@ -81,7 +85,7 @@ def exif_scan_photo_directories(target)
     complete_hash = {}
     names.each { |n| complete_hash[n] = false }
     status = {}
-    queuemax = {}    
+    queuemax = {}
     names.each do |n|
       status[n] = THREAD_INITIAL_STATUS
     end
@@ -92,10 +96,10 @@ def exif_scan_photo_directories(target)
       names = PHOTO_THREAD_NAMES
       names.map { |name|  "#{name} alive #{threads[name].alive?} queue size #{queue_hash[name].size}, max #{queuemax[name]} complete #{complete_hash[name]} status '#{status[name]};"  }.join("\n")
     end
-      
+
     name = 'exif'
     threads[name] = Thread.new(name) do |name|
-      log("#{name} started.")      
+      log("#{name} started.")
       while exif_queue.size > 0 or not complete_hash[name] do
         file_chunk = exif_queue.pop
         status[name] = "started" if status[name].eql? THREAD_INITIAL_STATUS
@@ -121,7 +125,7 @@ def exif_scan_photo_directories(target)
         rescue Exiftool::ExiftoolNotInstalled
           log "exiftool internal error with file_chunk #{file_chunk}"
         end
-        
+
       end
       status[name] = "complete #{status[name]}"
       if md5_queue.size == 0 and md5_queue.num_waiting == 1
@@ -139,7 +143,7 @@ def exif_scan_photo_directories(target)
       log("#{name} started.")
       while queue.size > 0 or not complete_hash[name] do
         val = queue.pop
-        status[name] = "started" if status[name].eql? THREAD_INITIAL_STATUS        
+        status[name] = "started" if status[name].eql? THREAD_INITIAL_STATUS
         filename = val[:filename]
         key = Digest::MD5.hexdigest(IO.read(filename)).to_sym
         status[name] = "#{filename}: #{key}"
@@ -155,8 +159,8 @@ def exif_scan_photo_directories(target)
       end
       status[name] = "complete"
       log "#{name} complete"
-    end    
-    
+    end
+
     files.each_slice(file_chunk_count) do |file_chunk|
       exif_queue << file_chunk
     end
@@ -167,10 +171,10 @@ def exif_scan_photo_directories(target)
     queue_hash.each do |name, q|
       queuemax[name] = q.size
     end
-    
+
     console = IO.console
 
-    lines = 2*names.length    
+    lines = 2*names.length
     console.write "\n"*lines
     active_state = 0
     while threads.reduce(false) { |m, (name, thread)| m || thread.alive? } do
@@ -197,7 +201,7 @@ def exif_scan_photo_directories(target)
         end
         line = "#{name}[#{size}:#{progress}/#{max}|#{complete}|#{alive}]$ #{status[name]}."
         console.write line + " " * (cols-line.length > 0 ? cols-line.length : 0) + "\n"
-        if progress == status_length 
+        if progress == status_length
           console.write " |" + "X" * progress + "| " + "\n"
         else
           console.write " |" + "X" * progress + ACTIVE[active_state] + "_" * (status_length-progress-1) + "| " + "\n"
@@ -235,9 +239,9 @@ Maid.rules do
       #item.delete
     end
   end
-  
+
   def sync_and_organize_photos(directory)
-    mkdir(PHOTO_TRASH_DIRECTORY)    
+    mkdir(PHOTO_TRASH_DIRECTORY)
     log("incomming directory #{ directory }")
     incomming_hash, destination_hash = exif_scan_photo_directories(directory)
     log("incomming scanned")
@@ -277,14 +281,14 @@ Maid.rules do
   end
 
   rule 'sync and organize photos' do
-    for d in PHOTO_INCOMING_DIRECTORY do 
+    for d in PHOTO_INCOMING_DIRECTORY do
       sync_and_organize_photos(d)
     end
-  end  
+  end
 
   watch PHOTO_WATCH_DIRECTORY do
     rule 'on watch sync and organize photos' do
-      for d in PHOTO_INCOMING_DIRECTORY do 
+      for d in PHOTO_INCOMING_DIRECTORY do
         sync_and_organize_photos(d)
       end
     end
