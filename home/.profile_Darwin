@@ -8,6 +8,8 @@ if [[ -e "$(command -v brew)" ]]; then
     fi
 fi
 
+. "${HOME}/google-cloud-sdk/path.bash.inc"
+. "${HOME}/google-cloud-sdk/completion.bash.inc"
     
 export PATH="${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/share/npm/bin:${HOME}/go/bin:$PATH"
 export MANPATH=/usr/local/share/man:$MANPATH

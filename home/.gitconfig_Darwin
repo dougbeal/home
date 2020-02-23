@@ -4,7 +4,7 @@
 [core]
         autocrlf = input
 	editor = emacsclient
-	excludesfile = "~/.gitignore_global"
+	excludesfile = /Volumes/Macintosh HD/Users/dougbeal/.gitignore_global
 
 [credential]
 	helper = osxkeychain
@@ -29,7 +29,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Volumes/Macintosh HD/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
 	template = "~/.stCommitMsg"
