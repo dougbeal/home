@@ -1,5 +1,7 @@
 # -*- mode: sh; -*-
 $(verbose echo ".profile_Darwin" )
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 BREW_PATH=""
 if [[ -e "$(command -v brew)" ]]; then
     BREW_PATH="$(brew --prefix coreutils)/libexec/gnubin"
@@ -8,10 +10,27 @@ if [[ -e "$(command -v brew)" ]]; then
     fi
 fi
 
-. "${HOME}/google-cloud-sdk/path.bash.inc"
-. "${HOME}/google-cloud-sdk/completion.bash.inc"
+file="${HOME}/google-cloud-sdk/path.bash.inc"
+if [ -f "$file" ]; then
+    . "$file"
+fi
+file="${HOME}/google-cloud-sdk/completion.bash.inc"
+if [ -f "$file" ]; then
+    . "$file"
+fi
     
-export PATH="${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:/usr/local/share/npm/bin:${HOME}/go/bin:$PATH"
+export PATH="${HOME}/bin:${HOME}/sbin:${BREW_PATH}:/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/usr/local/share/npm/bin:${HOME}/go/bin:$PATH"
+
+gempath="$(gem env gempath)"
+
+while IFS=':' read -ra GEMPATHS; do
+    for path in "${GEMPATHS[@]}"; do
+        if [[ "$path" ]]; then
+            PATH="$PATH:$path/bin"
+        fi
+    done
+done <<< "$gempath"
+
 export MANPATH=/usr/local/share/man:$MANPATH
 
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
