@@ -23,6 +23,10 @@ brew install gawk markdown git bash-completion cask ispell exiftool hub
     (
         go get github.com/fatih/gomodifytags golang.org/x/tools/cmd/goimports
     )&
+
+    # OCRmyPDF https://github.com/jbarlow83/OCRmyPDF
+    brew install tesseract-lang ocrmypdf
+
     # kubernetes and kubeless
     brew install kubernetes-cli kubeless helm
     helm repo add stable https://kubernetes-charts.storage.googleapis.com/
