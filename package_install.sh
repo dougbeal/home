@@ -1,5 +1,5 @@
 #!/bin/sh
-brew install gawk markdown git bash-completion cask ispell exiftool
+brew install gawk markdown git bash-completion cask ispell exiftool hub
 (
 
     brew install nodejs python ruby
