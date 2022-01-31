@@ -3,6 +3,7 @@ source "${HOME}/common.sh"
 export SVN_EDITOR="emacsclient"
 export EDITOR="emacsclient"
 safeSource "${HOME}/.alias"
+safeSource "${HOME}/.alias_$platform"
 safeSource "${HOME}/.profile_$platform"
 
 
